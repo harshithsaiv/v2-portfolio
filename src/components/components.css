@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #0a192f;
+    color: #ccd6f6;
+    overflow: hidden;
+  }
+  
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+    overflow-y: scroll; /* Allow vertical scrolling */
+    scrollbar-width: none; /* Hide the scrollbar in Firefox */
+  }
+  
+  .main-layout::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar in Chrome/Edge */
+  }
+  
+  .section {
+    scroll-snap-align: start; /* Snap to the start of each section */
+    height: 100vh; /* Each section takes up full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #about {
+    background-color: #0a192f; /* Optional, set background if different */
+  }
+  
+  #experience {
+    background-color: #0a192f; /* Slightly darker background for contrast */
+  }
+  
+  #projects {
+    background-color: #0a192f; /* Same as the About section for consistency */
+  }
+  
+  .section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #0a192f;
+    color: #ccd6f6;
+  }
+  
+  .section h1 {
+    font-size: 2.5rem;
+    color: #64ffda;
+  }
+  
+  .section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+  

@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Components from './components/components';
+import { AnimatePresence } from "framer-motion";
+import BootElement from './components/elements/bootscreen/BootElement';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.cursor = "default";
+        window.scrollTo(0, 0);
+      }, 5000);
+    })();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-primary text-text-primary">
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <BootElement />
+        ) : (
+          <Components />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
-export default App;
+export default App; 
