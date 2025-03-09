@@ -17,16 +17,25 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-primary text-text-primary">
+    <div className="min-h-screen bg-primary text-text-primary flex flex-col">
       <AnimatePresence mode="wait">
         {isLoading ? (
           <BootElement />
         ) : (
-          <Components />
+          <>
+            <div className="flex-grow">
+              <Components />
+            </div>
+            <footer className="w-full py-4 text-center border-t border-gray-800/50 mt-auto">
+              <p className="text-sm text-text-secondary">
+                © {new Date().getFullYear()} Harshith Sai. All rights reserved.
+              </p>
+            </footer>
+          </>
         )}
       </AnimatePresence>
     </div>
   );
 }
 
-export default App; 
+export default App;

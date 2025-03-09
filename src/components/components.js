@@ -3,7 +3,7 @@ import About from './About/About';
 import Experience from './Experience/Experience';
 import Skills from './Skills/Skills';
 import Research from './Research/Research';
-import Certifications from './Certifications/Certifications';
+// import Certifications from './Certifications/Certifications';
 import Projects from './Projects/Projects';
 import OpenToWork from './OpenToWork/OpenToWork';
 import Contact from './Contact/Contact';

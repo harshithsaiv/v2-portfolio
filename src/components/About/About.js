@@ -1,4 +1,5 @@
 import React from 'react';
+import PhotoGallery from '../PhotoGallery/PhotoGallery';
 
 const About = () => {
   return (
@@ -46,6 +47,37 @@ const About = () => {
               ))}
             </div>
           </div>
+          
+          {/* What I am doing now Section */}
+          {/* <div className="mt-10 pt-6 border-t border-gray-700">
+            <h2 className="text-2xl lg:text-3xl font-bold text-secondary mb-4">What I am doing now?</h2>
+            <p className="mb-4">
+              Curious about my current projects, learning paths, and what's keeping me busy these days? 
+              Check out my "now" page for real-time updates on what I'm focused on.
+            </p>
+            <a 
+              href="/now" 
+              className="inline-block px-6 py-3 rounded bg-secondary text-black font-medium hover:bg-opacity-90 transition-all"
+            >
+              See what I'm doing now →
+            </a>
+          </div> */}
+          
+          {/* Photo Gallery Section */}
+          <PhotoGallery 
+            photos={[
+              'photo1.jpg',
+              'photo2.jpg',
+              'photo3.jpg',
+              'photo4.jpg',
+              'photo5.jpg',
+              'photo6.jpg',
+              'photo7.jpg',
+              'photo8.jpg',
+              'photo9.jpg',
+              'photo10.jpg',
+            ]} 
+          />
         </div>
       </div>
     </div>
