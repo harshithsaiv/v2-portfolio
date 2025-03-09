@@ -42,7 +42,7 @@ const education = [
 const Education = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="max-w-3xl w-full animate-slide-up">
+      <div className="max-w-5xl w-full animate-slide-up">
         <h1 className="text-3xl lg:text-4xl font-bold text-secondary mb-8">Education</h1>
         <div className="space-y-12">
           {education.map((edu, index) => (
@@ -90,7 +90,7 @@ const Education = () => {
                       {edu.courses.map((course, i) => (
                         <span 
                           key={i}
-                          className="text-xs lg:text-sm text-text-secondary bg-gray-800/50 px-3 py-1 rounded-full hover:bg-secondary/10 hover:text-secondary transition-colors duration-300"
+                          className="text-xs lg:text-sm text-text-secondary bg-gray-800/50 px-3 py-1 rounded-full hover:bg-secondary/10 hover:text-secondary transition-colors duration-300 whitespace-nowrap"
                         >
                           {course}
                         </span>
@@ -106,7 +106,7 @@ const Education = () => {
                       {edu.highlights.map((highlight, i) => (
                         <li 
                           key={i}
-                          className="flex items-start gap-2 text-sm lg:text-base text-text-secondary"
+                          className="flex items-start gap-2 text-sm lg:text-base text-text-secondary whitespace-nowrap overflow-hidden text-ellipsis"
                         >
                           <span className="text-secondary mt-1">▹</span>
                           <span>{highlight}</span>
@@ -138,4 +138,4 @@ const Education = () => {
   );
 };
 
-export default Education; 
+export default Education;

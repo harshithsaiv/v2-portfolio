@@ -20,8 +20,8 @@ const research = [
 const Research = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="max-w-3xl w-full animate-slide-up">
-        <h1 className="text-3xl lg:text-4xl font-bold text-secondary mb-8">Research</h1>
+      <div className="max-w-5xl w-full animate-slide-up">
+        <h1 className="text-5xl lg:text-4xl font-bold text-secondary mb-8">Research</h1>
         <div className="space-y-8 lg:space-y-12">
           {research.map((item, index) => (
             <div 

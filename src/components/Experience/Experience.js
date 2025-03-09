@@ -43,8 +43,8 @@ const experiences = [
 const Experience = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="max-w-3xl w-full animate-slide-up">
-        <h1 className="text-3xl lg:text-4xl font-bold text-secondary mb-8">Experience</h1>
+      <div className="max-w-5xl w-full animate-slide-up">
+        <h1 className="text-5xl lg:text-4xl font-bold text-secondary mb-8">Experience</h1>
         <div className="space-y-12">
           {experiences.map((exp, index) => (
             <div key={index} className="group p-6 rounded-lg hover:bg-gray-800/30 transition-all duration-300 border border-gray-800/50 hover:border-secondary">
