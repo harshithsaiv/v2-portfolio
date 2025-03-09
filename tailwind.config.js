@@ -34,7 +34,11 @@ module.exports = {
       backdropBlur: {
         sm: '4px',
       },
+      fontFamily: {
+        sans: ['"JetBrains Mono"', 'monospace'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
     },
   },
   plugins: [],
-}; 
+};

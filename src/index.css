@@ -10,4 +10,5 @@ html {
 
 body {
   @apply bg-primary text-text-primary;
-} 
+  font-family: 'JetBrains Mono', monospace;
+}
