@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 const BootElement = () => {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
+  const [shouldExit, setShouldExit] = useState(false);
 
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });
@@ -12,15 +13,16 @@ const BootElement = () => {
 
   useEffect(() => {
     if (index == bootWords.length - 1) {
-      setTimeout(() => {
-      }, 800);
+      // Immediately trigger exit animation after the last word
+      setShouldExit(true);
       return;
     }
+    
     setTimeout(
       () => {
         setIndex(index + 1);
       },
-      index == 0 ? 1000 : 500
+      index == 0 ? 500 : 300
     );
   }, [index]);
 
@@ -36,11 +38,11 @@ const BootElement = () => {
   const curve = {
     initial: {
       d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1] },
     },
     exit: {
       d: targetPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
+      transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1], delay: 0.1 }, // Further reduced delay
     },
   };
 
@@ -52,11 +54,11 @@ const BootElement = () => {
         },
         exit: {
           top: "-100vh",
-          transition: { duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.1 },
+          transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1], delay: 0.1 }, // Made faster
         },
       }}
       initial="initial"
-      exit="exit"
+      animate={shouldExit ? "exit" : "initial"}
       className="h-[100vh] w-[100vw] flex items-center justify-center fixed z-[99] bg-[#000000]"
     >
       {dimension.width > 0 && (
@@ -71,12 +73,12 @@ const BootElement = () => {
               enter: {
                 opacity: 0.85,
                 y: 0,
-                transition: { duration: 0.5, delay: 0.1 },
+                transition: { duration: 0.3, delay: 0.05 },
               },
               exit: {
                 opacity: 0,
                 y: -20,
-                transition: { duration: 0.5 },
+                transition: { duration: 0.2 }, // Even faster exit
               }
             }}
             initial="initial"
@@ -90,7 +92,7 @@ const BootElement = () => {
             <motion.path
               variants={curve}
               initial="initial"
-              exit="exit"
+              animate={shouldExit ? "exit" : "initial"}
               fill="#000000"
             ></motion.path>
           </svg>
@@ -100,4 +102,4 @@ const BootElement = () => {
   );
 };
 
-export default BootElement; 
+export default BootElement;

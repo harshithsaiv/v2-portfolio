@@ -19,7 +19,6 @@ const skillCategories = [
       { name: "FastAPI", level: "Advanced" },
       { name: "Pytorch", level: "Advanced" },
       { name: "Flask", level: "Intermediate" },
-      { name: "Redux", level: "Advanced" }
     ]
   },
   {

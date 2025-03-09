@@ -1,8 +1,9 @@
-import React, { useState, useRef } from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
+import React, { useState, useRef, lazy, Suspense } from 'react';
+// Lazy load reCAPTCHA
+const ReCAPTCHA = lazy(() => import("react-google-recaptcha"));
 
 const Contact = () => {
-  // Form state
+  // Form state - use a single state object to reduce re-renders
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,23 +15,31 @@ const Contact = () => {
     error: null
   });
   
-  // reCAPTCHA reference
+  // Use a ref for captcha value to avoid unnecessary re-renders
+  const captchaValueRef = useRef(null);
   const recaptchaRef = useRef(null);
-  const [captchaValue, setCaptchaValue] = useState(null);
+  
+  // Only show captcha when user starts interacting with the form
+  const [showCaptcha, setShowCaptcha] = useState(false);
 
-  // Handle input changes
-  const handleInputChange = (e) => {
+  // Handle input changes - optimized to use a callback function
+  const handleInputChange = React.useCallback((e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
+    
+    // Show captcha after user starts typing
+    if (!showCaptcha) {
+      setShowCaptcha(true);
+    }
+  }, [showCaptcha]);
 
-  // Handle captcha change
-  const handleCaptchaChange = (value) => {
-    setCaptchaValue(value);
-  };
+  // Handle captcha change - use ref instead of state
+  const handleCaptchaChange = React.useCallback((value) => {
+    captchaValueRef.current = value;
+  }, []);
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
+  // Handle form submission - optimized
+  const handleSubmit = React.useCallback(async (e) => {
     e.preventDefault();
     
     // Validate form
@@ -44,7 +53,7 @@ const Contact = () => {
     }
     
     // Validate captcha
-    if (!captchaValue) {
+    if (!captchaValueRef.current) {
       setFormStatus({
         submitting: false,
         submitted: false,
@@ -67,7 +76,7 @@ const Contact = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          captchaValue: captchaValue
+          captchaValue: captchaValueRef.current
         }),
       });
       
@@ -79,8 +88,10 @@ const Contact = () => {
       
       // Reset form after successful submission
       setFormData({ name: '', email: '', message: '' });
-      recaptchaRef.current.reset();
-      setCaptchaValue(null);
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+      captchaValueRef.current = null;
       setFormStatus({
         submitting: false,
         submitted: true,
@@ -94,7 +105,98 @@ const Contact = () => {
         error: error.message || "Failed to send message. Please try again."
       });
     }
-  };
+  }, [formData]);
+
+  // Memoize contact form elements to prevent unnecessary re-renders
+  const contactForm = React.useMemo(() => (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+          className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
+          placeholder="Your name"
+        />
+      </div>
+      
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
+          placeholder="your.email@example.com"
+        />
+      </div>
+      
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-1">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleInputChange}
+          rows={5}
+          className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
+          placeholder="What would you like to say?"
+        />
+      </div>
+      
+      {showCaptcha && (
+        <div className="pt-2">
+          <Suspense fallback={<div className="h-78 flex items-center justify-center">Loading captcha...</div>}>
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Replace with your site key
+              onChange={handleCaptchaChange}
+              theme="dark"
+            />
+          </Suspense>
+        </div>
+      )}
+      
+      {formStatus.error && (
+        <div className="p-3 bg-red-500/20 border border-red-500 rounded-md text-red-300 text-sm">
+          {formStatus.error}
+        </div>
+      )}
+      
+      <div>
+        <button
+          type="submit"
+          disabled={formStatus.submitting}
+          className={`w-full px-6 py-3 text-sm lg:text-base text-white bg-secondary hover:bg-secondary/80 rounded-md transition-all duration-300 flex items-center justify-center ${
+            formStatus.submitting ? "opacity-70 cursor-not-allowed" : ""
+          }`}
+        >
+          {formStatus.submitting ? (
+            <>
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Sending...
+            </>
+          ) : (
+            "Send Message"
+          )}
+        </button>
+      </div>
+    </form>
+  ), [formData, formStatus, handleInputChange, handleSubmit, showCaptcha]);
 
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -114,91 +216,7 @@ const Contact = () => {
               <div className="p-4 bg-green-500/20 border border-green-500 rounded-md text-green-300">
                 Your message has been sent! I'll get back to you soon.
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="Your name"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={5}
-                    className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-                    placeholder="What would you like to say?"
-                  />
-                </div>
-                
-                <div className="pt-2">
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Replace with your site key
-                    onChange={handleCaptchaChange}
-                    theme="dark"
-                  />
-                </div>
-                
-                {formStatus.error && (
-                  <div className="p-3 bg-red-500/20 border border-red-500 rounded-md text-red-300 text-sm">
-                    {formStatus.error}
-                  </div>
-                )}
-                
-                <div>
-                  <button
-                    type="submit"
-                    disabled={formStatus.submitting}
-                    className={`w-full px-6 py-3 text-sm lg:text-base text-white bg-secondary hover:bg-secondary/80 rounded-md transition-all duration-300 flex items-center justify-center ${
-                      formStatus.submitting ? "opacity-70 cursor-not-allowed" : ""
-                    }`}
-                  >
-                    {formStatus.submitting ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      "Send Message"
-                    )}
-                  </button>
-                </div>
-              </form>
-            )}
+            ) : contactForm}
           </div>
           
           <div className="space-y-4">
@@ -261,4 +279,5 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+// Use React.memo to prevent unnecessary re-renders
+export default React.memo(Contact);

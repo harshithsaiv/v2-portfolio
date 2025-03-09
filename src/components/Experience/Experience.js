@@ -30,7 +30,7 @@ const experiences = [
   {
     title: "AWS Cloud Internship",
     company: "Government of India",
-    period: "2016 - 2018",
+    period: "Oct. 2021 - Dec. 2021",
     description: [
       "Enhanced performance using AWS CloudFront caching, improving UX",
       "Implemented responsive designs with AWS Amplify for scalability",
