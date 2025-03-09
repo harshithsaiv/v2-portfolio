@@ -108,95 +108,95 @@ const Contact = () => {
   }, [formData]);
 
   // Memoize contact form elements to prevent unnecessary re-renders
-  const contactForm = React.useMemo(() => (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">
-          Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-          className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-          placeholder="Your name"
-        />
-      </div>
+  // const contactForm = React.useMemo(() => (
+  //   <form onSubmit={handleSubmit} className="space-y-4">
+  //     <div>
+  //       <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">
+  //         Name
+  //       </label>
+  //       <input
+  //         type="text"
+  //         id="name"
+  //         name="name"
+  //         value={formData.name}
+  //         onChange={handleInputChange}
+  //         className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
+  //         placeholder="Your name"
+  //       />
+  //     </div>
       
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
-          Email
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-          placeholder="your.email@example.com"
-        />
-      </div>
+  //     <div>
+  //       <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
+  //         Email
+  //       </label>
+  //       <input
+  //         type="email"
+  //         id="email"
+  //         name="email"
+  //         value={formData.email}
+  //         onChange={handleInputChange}
+  //         className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
+  //         placeholder="your.email@example.com"
+  //       />
+  //     </div>
       
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-1">
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleInputChange}
-          rows={5}
-          className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-          placeholder="What would you like to say?"
-        />
-      </div>
+  //     <div>
+  //       <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-1">
+  //         Message
+  //       </label>
+  //       <textarea
+  //         id="message"
+  //         name="message"
+  //         value={formData.message}
+  //         onChange={handleInputChange}
+  //         rows={5}
+  //         className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
+  //         placeholder="What would you like to say?"
+  //       />
+  //     </div>
       
-      {showCaptcha && (
-        <div className="pt-2">
-          <Suspense fallback={<div className="h-78 flex items-center justify-center">Loading captcha...</div>}>
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Replace with your site key
-              onChange={handleCaptchaChange}
-              theme="dark"
-            />
-          </Suspense>
-        </div>
-      )}
+  //     {showCaptcha && (
+  //       <div className="pt-2">
+  //         <Suspense fallback={<div className="h-78 flex items-center justify-center">Loading captcha...</div>}>
+  //           <ReCAPTCHA
+  //             ref={recaptchaRef}
+  //             sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Replace with your site key
+  //             onChange={handleCaptchaChange}
+  //             theme="dark"
+  //           />
+  //         </Suspense>
+  //       </div>
+  //     )}
       
-      {formStatus.error && (
-        <div className="p-3 bg-red-500/20 border border-red-500 rounded-md text-red-300 text-sm">
-          {formStatus.error}
-        </div>
-      )}
+  //     {formStatus.error && (
+  //       <div className="p-3 bg-red-500/20 border border-red-500 rounded-md text-red-300 text-sm">
+  //         {formStatus.error}
+  //       </div>
+  //     )}
       
-      <div>
-        <button
-          type="submit"
-          disabled={formStatus.submitting}
-          className={`w-full px-6 py-3 text-sm lg:text-base text-white bg-secondary hover:bg-secondary/80 rounded-md transition-all duration-300 flex items-center justify-center ${
-            formStatus.submitting ? "opacity-70 cursor-not-allowed" : ""
-          }`}
-        >
-          {formStatus.submitting ? (
-            <>
-              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Sending...
-            </>
-          ) : (
-            "Send Message"
-          )}
-        </button>
-      </div>
-    </form>
-  ), [formData, formStatus, handleInputChange, handleSubmit, showCaptcha]);
+  //     <div>
+  //       <button
+  //         type="submit"
+  //         disabled={formStatus.submitting}
+  //         className={`w-full px-6 py-3 text-sm lg:text-base text-white bg-secondary hover:bg-secondary/80 rounded-md transition-all duration-300 flex items-center justify-center ${
+  //           formStatus.submitting ? "opacity-70 cursor-not-allowed" : ""
+  //         }`}
+  //       >
+  //         {formStatus.submitting ? (
+  //           <>
+  //             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+  //               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+  //               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+  //             </svg>
+  //             Sending...
+  //           </>
+  //         ) : (
+  //           "Send Message"
+  //         )}
+  //       </button>
+  //     </div>
+  //   </form>
+  // ), [formData, formStatus, handleInputChange, handleSubmit, showCaptcha]);
 
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -209,7 +209,7 @@ const Contact = () => {
           </p>
           
           {/* Contact Form */}
-          <div className="bg-background-secondary/30 p-6 rounded-lg border border-border">
+          {/* <div className="bg-background-secondary/30 p-6 rounded-lg border border-border">
             <h2 className="text-xl font-semibold text-white mb-4">Send me a message</h2>
             
             {formStatus.submitted ? (
@@ -217,7 +217,7 @@ const Contact = () => {
                 Your message has been sent! I'll get back to you soon.
               </div>
             ) : contactForm}
-          </div>
+          </div> */}
           
           <div className="space-y-4">
             <div className="flex items-center gap-3">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PhotoGallery from '../PhotoGallery/PhotoGallery';
 
 const About = () => {
@@ -49,19 +50,19 @@ const About = () => {
           </div>
           
           {/* What I am doing now Section */}
-          {/* <div className="mt-10 pt-6 border-t border-gray-700">
+          <div className="mt-10 pt-6 border-t border-gray-700">
             <h2 className="text-2xl lg:text-3xl font-bold text-secondary mb-4">What I am doing now?</h2>
             <p className="mb-4">
               Curious about my current projects, learning paths, and what's keeping me busy these days? 
               Check out my "now" page for real-time updates on what I'm focused on.
             </p>
-            <a 
-              href="/now" 
+            <Link 
+              to="/now" 
               className="inline-block px-6 py-3 rounded bg-secondary text-black font-medium hover:bg-opacity-90 transition-all"
             >
               See what I'm doing now →
-            </a>
-          </div> */}
+            </Link>
+          </div>
           
           {/* Photo Gallery Section */}
           <PhotoGallery 
