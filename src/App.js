@@ -4,6 +4,7 @@ import Components from './components/components';
 import { AnimatePresence } from "framer-motion";
 import BootElement from './components/elements/bootscreen/BootElement';
 import Now from './components/Now/Now';
+import KnowledgeBase from './components/KnowledgeBase/KnowledgeBase';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,6 +30,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Components />} />
                 <Route path="/now" element={<Now />} />
+                <Route path="/knowledge-base" element={<KnowledgeBase />} />
               </Routes>
             </div>
             <footer className="w-full py-4 text-center border-t border-gray-800/50 mt-auto">

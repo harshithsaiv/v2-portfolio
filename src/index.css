@@ -12,3 +12,12 @@ body {
   @apply bg-primary text-text-primary;
   font-family: 'JetBrains Mono', monospace;
 }
+
+/* Knowledge base specific styles */
+.kb-category {
+  @apply border-l-2 border-secondary pl-4 py-2;
+}
+
+.kb-resource {
+  @apply hover:bg-gray-800/40 p-3 rounded transition-colors;
+}

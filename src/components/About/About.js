@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PhotoGallery from '../PhotoGallery/PhotoGallery';
 
 const About = () => {
   return (
@@ -64,21 +63,6 @@ const About = () => {
             </Link>
           </div>
           
-          {/* Photo Gallery Section */}
-          <PhotoGallery 
-            photos={[
-              'photo1.jpg',
-              'photo2.jpg',
-              'photo3.jpg',
-              'photo4.jpg',
-              'photo5.jpg',
-              'photo6.jpg',
-              'photo7.jpg',
-              'photo8.jpg',
-              'photo9.jpg',
-              'photo10.jpg',
-            ]} 
-          />
         </div>
       </div>
     </div>
