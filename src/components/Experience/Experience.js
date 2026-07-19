@@ -2,7 +2,7 @@ import React from 'react';
 
 const experiences = [
   {
-    title: 'AI Engineer',
+    title: 'AI Engineer · Founding Engineer',
     company: 'Optispan',
     companyNote: 'Longevity Healthcare · Startup',
     period: '2024 – Present',
@@ -12,9 +12,12 @@ const experiences = [
       'Engineered real-time AI scribing system with Whisper-based transcription, medical entity extraction (ICD-10/CPT codes), and SOAP note auto-generation, reducing physician documentation time significantly',
       'Built voice agents for telehealth consultations: real-time STT, intent classification, context-aware response generation, and handoff orchestration using LangGraph state machines',
       'Designed end-to-end RAG pipelines over clinical literature with hybrid search, reranking, and grounded generation, validated for clinical accuracy against physician review',
+      'Post-training the clinical model (MedGemma-based, alongside Gemini) with a two-stage alignment pipeline: Direct Preference Optimization (DPO) on clinician-reviewed preference pairs for cheap offline alignment, followed by Proximal Policy Optimization (PPO) against a reward model trained on combined clinician review and in-app user ratings, with a KL penalty to the reference policy to keep outputs from drifting off-distribution',
+      'Founding Engineer for the mobile product: solely responsible for shipping the native iOS app (Swift) to the App Store and the Android app to the Play Store, owning the release end to end',
+      'Acted as Product Designer for the mobile apps, designing the complete iOS and Android user workflow, screen by screen, before any UI code was written',
       'Own product features end-to-end: requirements → system design → implementation → deployment → user feedback loop; act as Product Engineer on the AI layer',
     ],
-    tech: ['Python', 'LangGraph', 'LangChain', 'OpenAI API', 'Claude API', 'Whisper', 'FastAPI', 'LiveKit', 'Pinecone', 'AWS', 'PostgreSQL'],
+    tech: ['Python', 'LangGraph', 'LangChain', 'OpenAI API', 'Claude API', 'Whisper', 'FastAPI', 'LiveKit', 'Pinecone', 'AWS', 'PostgreSQL', 'Swift', 'Android', 'MedGemma', 'Gemini', 'PPO', 'DPO'],
   },
   {
     title: 'Software Engineering Intern',
