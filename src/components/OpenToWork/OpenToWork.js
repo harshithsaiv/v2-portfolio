@@ -24,7 +24,7 @@ const OpenToWork = () => {
               <div className="flex items-center gap-2">
                 <div className="relative w-6 h-6 rounded-full overflow-hidden border border-secondary/30">
                   <img 
-                    src="/anime.png"
+                    src="/profile-photo.jpg"
                     alt="Profile"
                     className="w-full h-full object-cover"
                   />
@@ -32,7 +32,7 @@ const OpenToWork = () => {
                 <div className="flex flex-col">
                   <span className="text-xs font-medium text-white">OPEN TO WORK</span>
                   <span className="text-[8px] text-text-secondary">
-                    AI & Security Engineer
+                    AI/ML & Software Engineer
                   </span>
                 </div>
               </div>
@@ -47,7 +47,7 @@ const OpenToWork = () => {
           <div className="flex items-center gap-3">
             <div className="relative w-8 h-8 rounded-full overflow-hidden border border-secondary/30">
               <img 
-                src="/anime.png"
+                src="/profile-photo.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -61,7 +61,7 @@ const OpenToWork = () => {
                 <span className="text-sm font-medium text-white tracking-wide whitespace-nowrap">OPEN TO WORK</span>
               </div>
               <span className="text-xs text-text-secondary mt-1 tracking-wide whitespace-nowrap">
-                AI & Security Engineer
+                AI/ML & Software Engineer
               </span>
             </div>
           </div>

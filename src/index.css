@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +9,27 @@ html {
 body {
   @apply bg-primary text-text-primary;
   font-family: 'JetBrains Mono', monospace;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2a3a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64ffda30;
+}
+
+/* Text selection */
+::selection {
+  background: rgba(100, 255, 218, 0.15);
+  color: #64ffda;
 }
 
 /* Knowledge base specific styles */

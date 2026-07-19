@@ -2,79 +2,124 @@ import React from 'react';
 
 const experiences = [
   {
-    title: "Cyber Security Student Assistant",
-    company: "California State University, Sacramento",
-    period: "2023 - Present",
+    title: 'AI Engineer',
+    company: 'Optispan',
+    companyNote: 'Longevity Healthcare · Startup',
+    period: '2024 — Present',
+    current: true,
     description: [
-"Built an in-house SIEM tool using Elasticsearch and Kibana for log analysis",
-"Analyzed abuse mailbox reports and set rules to purge suspicious emails",
-"Conducted network audits with Nmap to identify vulnerabilities",
-"Automated log collection with scripts, improving efficiency",
-"Generated Qualys reports for management to enhance security",
-"Performed forensic analysis during CrowdStrike incidents to identify IOCs"
+      'Building agentic clinical intelligence systems — architected multi-step reasoning pipelines for medical knowledge retrieval (OpenEvidence-style), integrating vector search, reranking, and LLM synthesis for clinical decision support',
+      'Engineered real-time AI scribing system with Whisper-based transcription, medical entity extraction (ICD-10/CPT codes), and SOAP note auto-generation — reducing physician documentation time significantly',
+      'Built voice agents for telehealth consultations: real-time STT, intent classification, context-aware response generation, and handoff orchestration using LangGraph state machines',
+      'Designed end-to-end RAG pipelines over clinical literature with hybrid search, reranking, and grounded generation — validated for clinical accuracy against physician review',
+      'Own product features end-to-end: requirements → system design → implementation → deployment → user feedback loop; act as Product Engineer on the AI layer',
     ],
-    tech: ["AWS","Elasticsearch", "Kibana", "Logstash", "Nmap", "Docker", "Python","Bash"]
+    tech: ['Python', 'LangGraph', 'LangChain', 'OpenAI API', 'Claude API', 'Whisper', 'FastAPI', 'LiveKit', 'Pinecone', 'AWS', 'PostgreSQL'],
   },
   {
-    title: "Security Software Engineer Intern",
-    company: "REINFOSEC",
-    period: "2022 - 2023",
+    title: 'Software Engineering Intern',
+    company: 'State Street Global Markets',
+    period: 'Summer 2024',
     description: [
-     "Developed Education-focused Damn Vulnerable Web Application (DVWA) to enhance threat detection and prevention",
-"Automated vulnerability scanning workflows, improving efficiency by 30%",
-"Built microservices using SpringBoot following JAVA CERT standards",
-"Implemented log analysis systems to monitor and respond to potential security incidents"
+      'Reduced trading platform latency by 35% (600ms → 390ms) through Java/Spring Boot optimization, enabling $10M+ in additional daily transaction volume across global markets',
+      'Architected RESTful microservices handling 10K+ concurrent requests/second with 99.95% uptime for 500+ institutional clients',
+      'Implemented CI/CD pipeline with Docker and Kubernetes reducing deployment time by 40% for 15-engineer trading team',
+      'Conducted code reviews for 50+ pull requests, maintaining 95% test coverage and preventing 12+ critical production bugs',
+      'Delivered 8 production features ahead of schedule collaborating across 3 time zones using Agile/Scrum',
     ],
-    tech: ["React", "Node.js", "Express.js","SpringBoot", "Wireshark","Burp Suite","Kali Linux","AWS"]
+    tech: ['Java', 'Spring Boot', 'Python', 'SQL', 'React', 'Docker', 'Kubernetes', 'AWS'],
   },
   {
-    title: "AWS Cloud Internship",
-    company: "Government of India",
-    period: "Oct. 2021 - Dec. 2021",
+    title: 'Software Developer & AI Research Assistant',
+    company: 'California State University, Sacramento',
+    period: 'Jan 2023 — 2024',
     description: [
-      "Enhanced performance using AWS CloudFront caching, improving UX",
-      "Implemented responsive designs with AWS Amplify for scalability",
-      "Automated CI/CD pipelines with AWS CodePipeline, reducing downtime",
+      'Engineered GPU-accelerated SIEM platform processing 1M+ security events/hour across 5,000+ campus devices using CUDA and PyTorch, achieving 99.9% uptime',
+      'Built distributed Elasticsearch cluster with sub-200ms query latency handling 500GB+ daily log ingestion — 60% faster incident detection (30min → 12min)',
+      'Developed ML-based anomaly detection with 92% accuracy, preventing 15+ potential breaches and saving $200K+ in damages',
+      'Optimized data pipeline throughput by 45% via Docker/Kubernetes, reducing infrastructure costs by $50K annually',
+      'Led published research on GPU-accelerated smart contract vulnerability detection (IEEE TPS 2025)',
     ],
-    tech: ["JavaScript", "React", "Redux", "SASS"]
-  }
+    tech: ['Python', 'CUDA', 'PyTorch', 'AWS', 'Elasticsearch', 'Docker', 'Kubernetes', 'TensorFlow'],
+  },
+  {
+    title: 'Software Engineer Intern',
+    company: 'REINFOSEC',
+    period: 'May 2022 — Aug 2023',
+    description: [
+      'Architected full-stack security training platform serving 100K+ monthly users with React and Spring Boot — 99.7% uptime, 4.8/5 user satisfaction',
+      'Reduced API response time by 40% (800ms → 480ms) through microservices optimization, improving UX for 10K+ concurrent users',
+      'Built automated testing framework increasing code coverage from 40% → 90%, reducing production bugs by 30%',
+      'Implemented Jenkins CI/CD cutting deployment time by 65% and enabling 3× faster feature releases for 8-person team',
+    ],
+    tech: ['Java', 'Spring Boot', 'React', 'Node.js', 'Docker', 'PostgreSQL', 'AWS', 'Jenkins'],
+  },
 ];
 
 const Experience = () => {
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="max-w-5xl w-full animate-slide-up">
-        <h1 className="text-5xl lg:text-4xl font-bold text-secondary mb-8">Experience</h1>
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="group p-6 rounded-lg hover:bg-gray-800/30 transition-all duration-300 border border-gray-800/50 hover:border-secondary">
-              <div className="flex flex-col space-y-2 lg:flex-row lg:space-y-0 lg:items-center justify-between mb-4">
-                <div>
-                  <h3 className="text-xl lg:text-2xl font-semibold text-text-primary group-hover:text-secondary">
+      <div className="max-w-4xl w-full animate-slide-up px-4 lg:px-0">
+
+        <div className="mb-12">
+          <p className="text-xs font-mono text-secondary tracking-widest mb-2">// experience</p>
+          <h1 className="text-3xl lg:text-4xl font-black text-white">Where I&apos;ve Worked</h1>
+        </div>
+
+        <div className="relative">
+          {/* Timeline vertical line */}
+          <div className="absolute left-0 top-2 bottom-2 w-px bg-gray-800/80" />
+
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div key={index} className="relative pl-8 group">
+                {/* Timeline dot */}
+                <div className={`absolute left-[-4px] top-1.5 w-2 h-2 rounded-full border transition-colors duration-300 ${
+                  exp.current
+                    ? 'bg-secondary border-secondary'
+                    : 'bg-gray-700 border-gray-600 group-hover:bg-secondary group-hover:border-secondary'
+                }`} />
+
+                <div className="mb-1 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                  <h3 className="text-lg font-bold text-gray-100 group-hover:text-secondary transition-colors duration-200">
                     {exp.title}
                   </h3>
-                  <p className="text-base lg:text-lg text-text-secondary">{exp.company}</p>
+                  <span className="text-secondary text-sm font-mono">@ {exp.company}</span>
+                  {exp.current && (
+                    <span className="text-xs font-mono text-black bg-secondary px-1.5 py-0.5 rounded self-start sm:self-auto">
+                      current
+                    </span>
+                  )}
                 </div>
-                <span className="text-sm lg:text-base text-text-secondary font-mono">{exp.period}</span>
+                {exp.companyNote && (
+                  <p className="text-xs font-mono text-gray-600 mb-0.5">{exp.companyNote}</p>
+                )}
+                <p className="text-xs font-mono text-gray-600 mb-4">{exp.period}</p>
+
+                <ul className="space-y-2.5 mb-5">
+                  {exp.description.map((desc, i) => (
+                    <li key={i} className="flex gap-3 text-sm text-gray-500 leading-relaxed group-hover:text-gray-400 transition-colors duration-200">
+                      <span className="text-secondary flex-shrink-0 mt-0.5 text-xs">▹</span>
+                      {desc}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex flex-wrap gap-2">
+                  {exp.tech.map((t, i) => (
+                    <span
+                      key={i}
+                      className="text-xs font-mono text-gray-600 border border-gray-800/60 rounded px-2 py-0.5 hover:text-secondary hover:border-secondary/30 transition-all duration-200 cursor-default"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <ul className="space-y-3 mb-6">
-                {exp.description.map((desc, i) => (
-                  <li key={i} className="text-sm lg:text-base text-text-secondary group-hover:text-text-primary">
-                    <span className="text-secondary mr-2 font-mono">▹</span>
-                    <span className="leading-relaxed">{desc}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-3">
-                {exp.tech.map((tech, i) => (
-                  <span key={i} className="px-3 py-1 text-xs lg:text-sm text-secondary bg-secondary/10 rounded-full font-mono">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
       </div>
     </div>
   );

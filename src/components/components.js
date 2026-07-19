@@ -1,13 +1,87 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import About from './About/About';
 import Experience from './Experience/Experience';
 import Skills from './Skills/Skills';
 import Research from './Research/Research';
-// import Certifications from './Certifications/Certifications';
 import Projects from './Projects/Projects';
 import OpenToWork from './OpenToWork/OpenToWork';
 import Contact from './Contact/Contact';
 import Education from './Education/Education';
+
+// Recent entries shown as a preview on the main page
+// Keep in sync with KnowledgeBase.js or pull from a shared data file
+const recentWriting = [
+  {
+    date: 'Apr 2026',
+    category: '// exploration',
+    title: 'Building a Write-Ahead Log with Raft Consensus in Rust',
+    excerpt: 'The hardest part wasn\'t the consensus protocol — it was getting WAL flush semantics right. fsync on the leader before responding to the client dominates latency.',
+  },
+  {
+    date: 'Mar 2026',
+    category: '// paper',
+    title: 'ReAct: Synergizing Reasoning and Acting in Language Models',
+    excerpt: 'The paper underpinning how I think about agentic pipelines at Optispan. LangGraph\'s state machine maps directly to ReAct: nodes are actions, edges are reasoning transitions.',
+  },
+  {
+    date: 'Feb 2026',
+    category: '// paper',
+    title: 'PagedAttention & vLLM — Why KV Cache Memory Management Matters',
+    excerpt: 'PagedAttention treats KV cache like virtual memory in an OS. Near-zero memory waste vs. static allocation. Critical for LLM inference optimization.',
+  },
+];
+
+const WritingPreview = () => (
+  <div className="max-w-4xl w-full mx-auto animate-slide-up">
+    <div className="mb-10">
+      <p className="text-xs font-mono text-secondary tracking-widest mb-2">// writing</p>
+      <div className="flex items-baseline justify-between">
+        <h2 className="text-3xl lg:text-4xl font-black text-white">Notes & Explorations</h2>
+        <Link
+          to="/knowledge-base"
+          className="text-xs font-mono text-secondary hover:text-white transition-colors duration-200 flex items-center gap-1"
+        >
+          view all
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </Link>
+      </div>
+      <p className="text-xs font-mono text-gray-600 mt-2">
+        Papers I'm reading · Systems I'm building · Thinking out loud
+      </p>
+    </div>
+
+    <div className="space-y-3">
+      {recentWriting.map((entry, i) => (
+        <Link
+          key={i}
+          to="/knowledge-base"
+          className="group flex gap-4 border border-gray-800/60 rounded-lg p-5 hover:border-secondary/30 hover:bg-gray-900/20 transition-all duration-300"
+        >
+          <div className="flex-shrink-0 w-20 text-right">
+            <span className="text-xs font-mono text-gray-700">{entry.date}</span>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-mono text-gray-600 mb-1">{entry.category}</p>
+            <h3 className="text-sm font-bold text-gray-200 group-hover:text-secondary transition-colors duration-200 mb-1.5 leading-snug">
+              {entry.title}
+            </h3>
+            <p className="text-xs text-gray-600 leading-relaxed overflow-hidden group-hover:text-gray-500 transition-colors duration-200" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+              {entry.excerpt}
+            </p>
+          </div>
+          <div className="flex-shrink-0 self-center">
+            <svg className="w-4 h-4 text-gray-700 group-hover:text-secondary transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </Link>
+      ))}
+    </div>
+  </div>
+);
 
 const Components = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -68,11 +142,23 @@ const Components = () => {
 
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 bg-primary/95 backdrop-blur-sm z-20 border-b border-gray-800/50">
-        <div className="p-4 sm:p-6">
-          <h1 className="text-lg sm:text-xl font-bold text-white">Harshith Sai Veeraiah</h1>
-          <h2 className="text-sm sm:text-base text-text-secondary">
-            Strategic Innovator | AI, Cybersecurity, and Systems Specialist
-          </h2>
+        <div className="p-4 sm:p-6 flex items-center justify-between">
+          <div className="flex-1">
+            <h1 className="text-lg sm:text-xl font-bold text-white">Harshith Sai Veeraiah</h1>
+            <h2 className="text-sm sm:text-base text-text-secondary">
+              AI Engineer · Product Engineer · Optispan
+            </h2>
+          </div>
+          <a
+            href="/Harshith_Resume_Software_Engineering-4.pdf"
+            className="flex items-center gap-1 px-3 py-2 text-xs sm:text-sm text-secondary border border-secondary/50 rounded-md hover:bg-secondary/10 transition-all"
+            download
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            <span className="hidden sm:inline">Resume</span>
+          </a>
         </div>
       </div>
 
@@ -103,39 +189,103 @@ const Components = () => {
                   </button>
                 </li>
               ))}
+              <li className="pt-4 border-t border-gray-800/40">
+                <Link
+                  to="/knowledge-base"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-2xl font-medium text-text-secondary hover:text-white transition-all duration-300 flex items-center gap-2"
+                >
+                  Writing
+                  <svg className="w-4 h-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/now"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-2xl font-medium text-text-secondary hover:text-white transition-all duration-300 flex items-center gap-2"
+                >
+                  Now
+                  <svg className="w-4 h-4 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
       </div>
 
       {/* Desktop Navigation - Hidden on mobile */}
-      <div className="hidden lg:fixed lg:block top-0 left-0 w-[400px] h-screen bg-primary/95 backdrop-blur-sm p-8 border-r border-gray-800/50 z-10">
-        <div className="mb-12">
-          <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">Harshith Sai Veeraiah</h1>
-          <h2 className="text-base lg:text-lg text-text-secondary leading-relaxed">
-            Strategic Innovator | AI, Security, and Systems Specialist
+      <div className="hidden lg:fixed lg:block top-0 left-0 w-[400px] h-screen bg-primary/95 backdrop-blur-sm p-8 border-r border-gray-800/50 z-10 overflow-y-auto">
+        <div className="mb-10">
+          {/* Profile Photo */}
+          <div className="flex justify-center mb-6">
+            <div className="relative w-28 h-28 rounded-full overflow-hidden border-4 border-secondary/40 shadow-2xl ring-4 ring-secondary/20">
+              <img 
+                src="/profile-photo.jpg"
+                alt="Harshith Sai Veeraiah"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          
+          <h1 className="text-2xl font-bold text-white mb-2 text-center">Harshith Sai Veeraiah</h1>
+          <h2 className="text-xs font-mono text-secondary leading-relaxed text-center mb-4">
+            AI Engineer · Product Engineer
           </h2>
-          <p className="text-text-secondary mt-4 text-sm lg:text-base leading-relaxed">
-            Innovating secure, intelligent systems with AI and engineering expertise.
+          <p className="text-text-secondary text-xs leading-relaxed text-center px-2 font-mono">
+            Building agentic AI systems, inference pipelines, and distributed infrastructure. Currently at Optispan.
           </p>
         </div>
         
         <nav className="mb-8">
-          <ul className="space-y-4">
+          <ul className="space-y-3">
             {['about', 'education', 'experience', 'skills', 'projects', 'research'].map((section) => (
               <li key={section}>
                 <button
                   onClick={() => scrollToSection(section)}
-                  className={`group flex items-center space-x-4 text-base lg:text-lg font-medium transition-all duration-300 w-full
+                  className={`group flex items-center space-x-3 text-sm font-medium transition-all duration-300 w-full
                     ${activeSection === section ? 'text-secondary' : 'text-text-secondary hover:text-white'}`}
                 >
-                  <span className={`h-[1px] w-12 transform transition-all duration-300
+                  <span className={`h-[1px] w-10 transform transition-all duration-300
                     ${activeSection === section ? 'bg-secondary scale-x-100' : 'bg-text-secondary scale-x-0 group-hover:scale-x-100'}`}
                   />
                   <span className="capitalize">{section}</span>
                 </button>
               </li>
             ))}
+            {/* External links */}
+            <li className="pt-2 border-t border-gray-800/40">
+              <Link
+                to="/knowledge-base"
+                className="group flex items-center space-x-3 text-sm font-medium transition-all duration-300 text-text-secondary hover:text-white"
+              >
+                <span className="h-[1px] w-10 bg-text-secondary scale-x-0 group-hover:scale-x-100 transform transition-all duration-300" />
+                <span className="flex items-center gap-1.5">
+                  writing
+                  <svg className="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/now"
+                className="group flex items-center space-x-3 text-sm font-medium transition-all duration-300 text-text-secondary hover:text-white"
+              >
+                <span className="h-[1px] w-10 bg-text-secondary scale-x-0 group-hover:scale-x-100 transform transition-all duration-300" />
+                <span className="flex items-center gap-1.5">
+                  now
+                  <svg className="w-3 h-3 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </span>
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -211,9 +361,9 @@ const Components = () => {
           <section id="research" className="min-h-screen px-4 lg:px-8 pb-16">
             <Research />
           </section>
-          {/* <section id="certifications" className="min-h-screen px-4 lg:px-8 pb-16">
-            <Certifications />
-          </section> */}
+          <section id="writing" className="px-4 lg:px-8 pb-24">
+            <WritingPreview />
+          </section>
           <section id="contact" className="min-h-screen px-4 lg:px-8 pb-16">
             <Contact />
           </section>

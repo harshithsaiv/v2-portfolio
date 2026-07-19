@@ -1,69 +1,130 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
+  const [cursor, setCursor] = useState(true);
+
+  useEffect(() => {
+    const t = setInterval(() => setCursor(p => !p), 530);
+    return () => clearInterval(t);
+  }, []);
+
   return (
-    <div className="flex items-center justify-center min-h-screen py-20 lg:py-0">
-      <div className="max-w-3xl w-full animate-fade-in px-4 lg:px-0">
-        <h1 className="text-3xl lg:text-4xl font-bold text-secondary mb-8">About Me</h1>
-        <div className="space-y-6 text-base lg:text-lg text-text-secondary leading-relaxed">
-          <p>
-          I’m a developer and problem solver driven by a passion for creating innovative, secure, and intelligent systems that tackle real-world challenges. With a unique blend of skills in AI, cybersecurity, and software engineering, I specialize in crafting solutions that are not only scalable and efficient but also meticulously designed for performance and usability.
+    <div className="flex items-center justify-center min-h-screen py-24 lg:py-0">
+      <div className="max-w-4xl w-full animate-fade-in px-4 lg:px-0">
+
+        {/* Hero */}
+        <div className="mb-20">
+          <p className="text-secondary font-mono text-sm mb-4 tracking-wider">
+            <span className="opacity-50">&gt;_ </span>Hi, my name is
           </p>
-          <p>
-          Currently, I’m a graduate student and Information Security Student Assistant at {''}<span className="text-white">California State University, 
-          Sacramento</span>, where I collaborate on cutting-edge {''}<span className="text-white">research</span> and impactful projects. From designing AI-driven applications 
-          and verifying {''}<span className="text-white">GPU systems</span> to optimizing {''}<span className="text-white">backend frameworks</span>, my work is fueled by curiosity and a relentless pursuit
-          of excellence.
-          </p>
-          <p>
-            In the past, I've had the opportunity to contribute to diverse fields, including {' '}
-            <span className="text-white">blockchain</span> and{' '}
-            <span className="text-white">Machine Learning</span> to{' '}
-            <span className="text-white">Cloud Computing</span> and{' '}  
-            <span className="text-white">GPU centric applications</span>. 
-            collaborating with startups, government agencies, and academic institutions. My journey has allowed me to {''}<span className="text-white">develop</span> software solutions, 
-            {''}<span className="text-white">secure</span> digital infrastructure, and {''}<span className="text-white">mentor</span> others through teaching and community engagement.
-          </p>
-          <p>
-          When I’m not coding or brainstorming the next big idea, you’ll find me cycling offbeat trails, exploring peaks in California, 
-          or designing creative side projects that blend innovation with practicality.
-          </p>
-          <div className="mt-8">
-            <p className="mb-4 text-lg lg:text-xl">Here are a few technologies I've been working with recently:</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm lg:text-base">
-              {[
-                "Python",
-                "CUDA",
-                "JAVA",
-                "AWS",
-                "Docker",
-                "Kubernetes"
-              ].map((tech, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <span className="text-secondary">▹</span>
-                  <span>{tech}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* What I am doing now Section */}
-          <div className="mt-10 pt-6 border-t border-gray-700">
-            <h2 className="text-2xl lg:text-3xl font-bold text-secondary mb-4">What I am doing now?</h2>
-            <p className="mb-4">
-              Curious about my current projects, learning paths, and what's keeping me busy these days? 
-              Check out my "now" page for real-time updates on what I'm focused on.
+          <h1 className="text-5xl lg:text-7xl font-black text-white mb-3 tracking-tight leading-none">
+            Harshith Sai Veeraiah.
+          </h1>
+          <h2 className="text-2xl lg:text-4xl font-black text-gray-500 mb-10 tracking-tight leading-snug">
+            I build intelligent systems that ship.
+            <span
+              className="inline-block w-0.5 h-7 lg:h-10 bg-secondary ml-1.5 align-middle"
+              style={{ opacity: cursor ? 1 : 0, transition: 'opacity 0.05s' }}
+            />
+          </h2>
+
+          <div className="max-w-2xl space-y-4 text-base text-gray-400 leading-relaxed">
+            <p>
+              AI Engineer at{' '}
+              <span className="text-secondary">Optispan</span>{' '}
+              — a longevity healthcare startup — where I build agentic clinical intelligence systems:
+              voice agents for medical scribing, telehealth AI infrastructure, and
+              OpenEvidence-style clinical reasoning pipelines. I own features
+              end-to-end, from system design to deployment.
             </p>
-            <Link 
-              to="/now" 
-              className="inline-block px-6 py-3 rounded bg-secondary text-black font-medium hover:bg-opacity-90 transition-all"
+            <p>
+              Previously at{' '}
+              <span className="text-gray-200">State Street Global Markets</span>{' '}
+              and{' '}
+              <span className="text-gray-200">CSU Sacramento</span>{' '}
+              building GPU-accelerated ML systems and trading infrastructure.
+              MS Computer Science (4.0 GPA) with published research in
+              GPU-accelerated smart contract security at{' '}
+              <span className="text-gray-200">IEEE TPS 2025</span>.
+            </p>
+          </div>
+        </div>
+
+        {/* Core Technologies */}
+        <div className="mb-20">
+          <p className="text-xs font-mono text-gray-600 mb-4 tracking-widest">// core technologies</p>
+          <div className="flex flex-wrap gap-2">
+            {[
+              'Python & LangGraph',
+              'CUDA & GPU Inference',
+              'Rust & Systems',
+              'LLMs & RAG',
+              'FastAPI & WebRTC',
+              'AWS & Cloud',
+            ].map((tech, i) => (
+              <span
+                key={i}
+                className="px-3 py-1.5 text-sm font-mono text-secondary bg-secondary/5 border border-secondary/20 rounded hover:border-secondary/50 hover:bg-secondary/10 transition-all duration-200 cursor-default"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Key Numbers */}
+        <div className="mb-20">
+          <p className="text-xs font-mono text-gray-600 mb-6 tracking-widest">// by the numbers</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { value: 'Agentic', label: 'clinical AI systems in production at Optispan' },
+              { value: '4.0', label: 'GPA — MS Computer Science' },
+              { value: 'IEEE', label: 'TPS 2025 — published paper' },
+            ].map((stat, i) => (
+              <div key={i} className="border-l-2 border-secondary/40 pl-5">
+                <div className="text-2xl lg:text-3xl font-black text-white mb-1">{stat.value}</div>
+                <div className="text-xs font-mono text-gray-500 leading-snug">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Targeting */}
+        <div className="border border-gray-800/60 rounded-lg p-6 bg-gray-900/20">
+          <p className="text-xs font-mono text-secondary mb-3 tracking-widest">// targeting</p>
+          <p className="text-sm font-mono text-gray-300 mb-1">
+            AI Engineer &nbsp;·&nbsp; Inference Engineer &nbsp;·&nbsp; Product Engineer &nbsp;·&nbsp; Software Engineer
+          </p>
+          <p className="text-sm text-gray-500 mb-5 mt-3 max-w-xl leading-relaxed">
+            Looking for roles where I can{' '}
+            <span className="text-gray-200">own intelligent systems end-to-end</span>{' '}
+            — architecture, infrastructure, and product decisions.
+            Healthcare AI, developer tools, and inference systems are particularly exciting.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="/Harshith_Resume_Software_Engineering-4.pdf"
+              download
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-mono text-black bg-secondary hover:bg-secondary/90 rounded transition-all duration-200"
             >
-              See what I'm doing now →
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Resume
+            </a>
+            <Link
+              to="/now"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-mono text-secondary border border-secondary/30 rounded hover:border-secondary/60 hover:bg-secondary/5 transition-all duration-200"
+            >
+              What I&apos;m building now
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </Link>
           </div>
-          
         </div>
+
       </div>
     </div>
   );
