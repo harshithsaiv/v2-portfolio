@@ -40,3 +40,12 @@ body {
 .kb-resource {
   @apply hover:bg-stone-900/[0.03] p-3 rounded transition-colors;
 }
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

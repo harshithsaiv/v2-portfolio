@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PixelPattern from '../elements/PixelPattern';
 
 const About = () => {
   const [cursor, setCursor] = useState(true);
@@ -14,46 +15,57 @@ const About = () => {
       <div className="max-w-4xl w-full animate-fade-in px-4 lg:px-0">
 
         {/* Hero */}
-        <div className="mb-20">
-          <p className="text-xs font-mono text-secondary tracking-[0.2em] mb-5 uppercase">01 / About</p>
-          <h1 className="font-serif italic text-6xl lg:text-8xl text-text-primary mb-3 tracking-tight leading-none">
-            Harshith Sai Veeraiah
-          </h1>
-          <h2 className="font-sans text-2xl lg:text-4xl font-bold text-text-secondary mb-10 tracking-tight leading-snug">
-            I build intelligent systems that ship.
-            <span
-              className="inline-block w-0.5 h-7 lg:h-10 bg-secondary ml-1.5 align-middle"
-              style={{ opacity: cursor ? 1 : 0, transition: 'opacity 0.05s' }}
-            />
-          </h2>
+        <div className="mb-20 flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-14">
+          <div className="flex-1 min-w-0">
+            <p className="text-xs font-mono text-secondary tracking-[0.2em] mb-5 uppercase">01 / About</p>
+            <h1 className="font-serif italic text-6xl lg:text-8xl text-text-primary mb-3 tracking-tight leading-none">
+              Harshith Sai Veeraiah
+            </h1>
+            <p className="font-mono text-sm lg:text-base text-secondary mb-4">
+              I love solving problems in{' '}
+              <span className="text-text-primary font-medium">Intelligence per Watt</span> and{' '}
+              <span className="text-text-primary font-medium">Intelligence per Sample</span>.
+            </p>
+            <h2 className="font-sans text-2xl lg:text-4xl font-bold text-text-secondary mb-10 tracking-tight leading-snug">
+              I build intelligent systems that ship.
+              <span
+                className="inline-block w-0.5 h-7 lg:h-10 bg-secondary ml-1.5 align-middle"
+                style={{ opacity: cursor ? 1 : 0, transition: 'opacity 0.05s' }}
+              />
+            </h2>
 
-          <div className="max-w-2xl space-y-4 text-base text-text-secondary leading-relaxed">
-            <p>
-              AI Engineer at{' '}
-              <span className="text-secondary font-medium">Optispan</span>{' '}
-              — a longevity healthcare startup — where I build agentic clinical intelligence systems:
-              voice agents for medical scribing, telehealth AI infrastructure, and
-              OpenEvidence-style clinical reasoning pipelines. I own features
-              end-to-end, from system design to deployment.
-            </p>
-            <p>
-              Previously at{' '}
-              <span className="text-text-primary font-medium">State Street Global Markets</span>{' '}
-              and{' '}
-              <span className="text-text-primary font-medium">CSU Sacramento</span>{' '}
-              building GPU-accelerated ML systems and trading infrastructure.
-              MS Computer Science (4.0 GPA) with published research in
-              GPU-accelerated smart contract security at{' '}
-              <span className="text-text-primary font-medium">IEEE TPS 2025</span>.
-            </p>
-            <p>
-              Lately I've been pulling on two threads outside of work: compiler
-              internals (LLVM/MLIR) for ML acceleration, and client-side
-              architecture patterns (MVVM) — trying to understand the whole
-              stack a model runs on, not just the inference layer. More on
-              that on the{' '}
-              <Link to="/now" className="text-text-primary font-medium hover:text-secondary transition-colors">/now page</Link>.
-            </p>
+            <div className="max-w-2xl space-y-4 text-base text-text-secondary leading-relaxed">
+              <p>
+                AI Engineer at{' '}
+                <span className="text-secondary font-medium">Optispan</span>{' '}
+                — a longevity healthcare startup — where I build agentic clinical intelligence systems:
+                voice agents for medical scribing, telehealth AI infrastructure, and
+                OpenEvidence-style clinical reasoning pipelines. I own features
+                end-to-end, from system design to deployment.
+              </p>
+              <p>
+                Previously at{' '}
+                <span className="text-text-primary font-medium">State Street Global Markets</span>{' '}
+                and{' '}
+                <span className="text-text-primary font-medium">CSU Sacramento</span>{' '}
+                building GPU-accelerated ML systems and trading infrastructure.
+                MS Computer Science (4.0 GPA) with published research in
+                GPU-accelerated smart contract security at{' '}
+                <span className="text-text-primary font-medium">IEEE TPS 2025</span>.
+              </p>
+              <p>
+                Lately I've been pulling on two threads outside of work: compiler
+                internals (LLVM/MLIR) for ML acceleration, and client-side
+                architecture patterns (MVVM) — trying to understand the whole
+                stack a model runs on, not just the inference layer. More on
+                that on the{' '}
+                <Link to="/now" className="text-text-primary font-medium hover:text-secondary transition-colors">/now page</Link>.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-40 h-52 sm:w-48 sm:h-64 lg:w-56 lg:h-72 shrink-0 mx-auto lg:mx-0 rounded-lg overflow-hidden border border-stone-900/10 bg-black shadow-sm">
+            <PixelPattern className="w-full h-full" seed={7} />
           </div>
         </div>
 
