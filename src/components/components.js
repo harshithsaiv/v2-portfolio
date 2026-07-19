@@ -10,8 +10,8 @@ import Contact from './Contact/Contact';
 import Education from './Education/Education';
 import { loadPosts } from '../content/loadPosts';
 import { categoryLabel } from '../content/postMeta';
-import SideRail from './elements/SideRail';
-import BottomDock from './elements/BottomDock';
+import Sidebar from './elements/Sidebar';
+import MobileNav from './elements/MobileNav';
 
 const WritingPreview = () => {
   const [posts, setPosts] = useState([]);
@@ -110,12 +110,12 @@ const Components = () => {
     <div className="relative min-h-screen">
       <OpenToWork />
 
-      <SideRail activeSection={activeSection} onNavigate={scrollToSection} />
-      <BottomDock activeSection={activeSection} onNavigate={scrollToSection} />
+      <Sidebar activeSection={activeSection} onNavigate={scrollToSection} />
+      <MobileNav activeSection={activeSection} onNavigate={scrollToSection} />
 
       {/* Main Content */}
-      <div className="relative z-10 pt-16 pb-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 lg:pl-20">
+      <div className="relative z-10 pt-20 lg:pt-8 pb-16 lg:ml-[280px]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
           <section id="about" className="min-h-screen">
             <About />
           </section>

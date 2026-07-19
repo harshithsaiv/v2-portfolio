@@ -22,9 +22,9 @@ const About = () => {
               Harshith Sai Veeraiah
             </h1>
             <p className="font-mono text-sm lg:text-base text-secondary mb-4">
-              I love solving problems in{' '}
-              <span className="text-text-primary font-medium">Intelligence per Watt</span> and{' '}
-              <span className="text-text-primary font-medium">Intelligence per Sample</span>.
+              The question I keep coming back to: how much intelligence can you squeeze out of{' '}
+              <span className="text-text-primary font-medium">a watt</span>, or out of{' '}
+              <span className="text-text-primary font-medium">a single training sample</span>.
             </p>
             <h2 className="font-sans text-2xl lg:text-4xl font-bold text-text-secondary mb-10 tracking-tight leading-snug">
               I build intelligent systems that ship.
@@ -38,10 +38,10 @@ const About = () => {
               <p>
                 AI Engineer at{' '}
                 <span className="text-secondary font-medium">Optispan</span>{' '}
-                — a longevity healthcare startup — where I build agentic clinical intelligence systems:
-                voice agents for medical scribing, telehealth AI infrastructure, and
-                OpenEvidence-style clinical reasoning pipelines. I own features
-                end-to-end, from system design to deployment.
+                — a longevity healthcare startup — building the clinical intelligence systems
+                doctors and patients actually talk to: voice agents for medical scribing,
+                telehealth AI infrastructure, and OpenEvidence-style clinical reasoning pipelines.
+                I take these from a design doc to something running in production.
               </p>
               <p>
                 Previously at{' '}
@@ -64,7 +64,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="w-40 h-52 sm:w-48 sm:h-64 lg:w-56 lg:h-72 shrink-0 mx-auto lg:mx-0 rounded-lg overflow-hidden border border-stone-900/10 bg-black shadow-sm">
+          <div className="w-40 h-52 sm:w-48 sm:h-64 lg:w-56 lg:h-72 shrink-0 mx-auto lg:mx-0 lg:mt-24 rounded-lg overflow-hidden border border-stone-900/10 bg-black shadow-sm">
             <PixelPattern className="w-full h-full" seed={7} />
           </div>
         </div>
@@ -115,10 +115,11 @@ const About = () => {
             AI Engineer &nbsp;·&nbsp; Inference Engineer &nbsp;·&nbsp; Product Engineer &nbsp;·&nbsp; Software Engineer
           </p>
           <p className="text-sm text-text-secondary mb-5 mt-3 max-w-xl leading-relaxed">
-            Looking for roles where I can{' '}
-            <span className="text-text-primary font-medium">own intelligent systems end-to-end</span>{' '}
-            — architecture, infrastructure, and product decisions.
-            Healthcare AI, developer tools, and inference systems are particularly exciting.
+            I'd rather be the one deciding how a system gets built than just implementing
+            someone else's spec for it. If that's{' '}
+            <span className="text-text-primary font-medium">healthcare AI</span>,{' '}
+            <span className="text-text-primary font-medium">developer tools</span>, or{' '}
+            <span className="text-text-primary font-medium">inference infrastructure</span>, let's talk.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <a
