@@ -38,7 +38,25 @@ module.exports = {
         sans: ['"JetBrains Mono"', 'monospace'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
+      typography: (theme) => ({
+        invert: {
+          css: {
+            '--tw-prose-body': theme('colors.text-secondary'),
+            '--tw-prose-headings': theme('colors.text-primary'),
+            '--tw-prose-links': theme('colors.secondary'),
+            '--tw-prose-bold': theme('colors.text-primary'),
+            '--tw-prose-code': theme('colors.secondary'),
+            '--tw-prose-quotes': theme('colors.text-secondary'),
+            '--tw-prose-quote-borders': theme('colors.secondary'),
+            '--tw-prose-hr': '#1e2a3a',
+            '--tw-prose-th-borders': '#1e2a3a',
+            '--tw-prose-td-borders': '#1e2a3a',
+            a: { textDecoration: 'none' },
+            'a:hover': { textDecoration: 'underline' },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
