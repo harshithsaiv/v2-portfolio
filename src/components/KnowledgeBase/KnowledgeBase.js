@@ -37,7 +37,7 @@ const KnowledgeBase = () => {
           <h1 className="text-3xl lg:text-4xl font-black text-text-primary mb-4">Knowledge Base</h1>
           <p className="text-sm font-mono text-stone-500 max-w-xl leading-relaxed">
             Notes from papers I'm reading, projects I'm building, and books I'm working through.
-            This is a thinking-out-loud space — rough ideas alongside polished write-ups.
+            This is a thinking-out-loud space: rough ideas alongside polished write-ups.
           </p>
         </div>
 

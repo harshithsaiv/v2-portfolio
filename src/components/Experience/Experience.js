@@ -5,13 +5,13 @@ const experiences = [
     title: 'AI Engineer',
     company: 'Optispan',
     companyNote: 'Longevity Healthcare · Startup',
-    period: '2024 — Present',
+    period: '2024 – Present',
     current: true,
     description: [
-      'Building agentic clinical intelligence systems — architected multi-step reasoning pipelines for medical knowledge retrieval (OpenEvidence-style), integrating vector search, reranking, and LLM synthesis for clinical decision support',
-      'Engineered real-time AI scribing system with Whisper-based transcription, medical entity extraction (ICD-10/CPT codes), and SOAP note auto-generation — reducing physician documentation time significantly',
+      'Building agentic clinical intelligence systems: architected multi-step reasoning pipelines for medical knowledge retrieval (OpenEvidence-style), integrating vector search, reranking, and LLM synthesis for clinical decision support',
+      'Engineered real-time AI scribing system with Whisper-based transcription, medical entity extraction (ICD-10/CPT codes), and SOAP note auto-generation, reducing physician documentation time significantly',
       'Built voice agents for telehealth consultations: real-time STT, intent classification, context-aware response generation, and handoff orchestration using LangGraph state machines',
-      'Designed end-to-end RAG pipelines over clinical literature with hybrid search, reranking, and grounded generation — validated for clinical accuracy against physician review',
+      'Designed end-to-end RAG pipelines over clinical literature with hybrid search, reranking, and grounded generation, validated for clinical accuracy against physician review',
       'Own product features end-to-end: requirements → system design → implementation → deployment → user feedback loop; act as Product Engineer on the AI layer',
     ],
     tech: ['Python', 'LangGraph', 'LangChain', 'OpenAI API', 'Claude API', 'Whisper', 'FastAPI', 'LiveKit', 'Pinecone', 'AWS', 'PostgreSQL'],
@@ -32,10 +32,10 @@ const experiences = [
   {
     title: 'Software Developer & AI Research Assistant',
     company: 'California State University, Sacramento',
-    period: 'Jan 2023 — 2024',
+    period: 'Jan 2023 – 2024',
     description: [
       'Engineered GPU-accelerated SIEM platform processing 1M+ security events/hour across 5,000+ campus devices using CUDA and PyTorch, achieving 99.9% uptime',
-      'Built distributed Elasticsearch cluster with sub-200ms query latency handling 500GB+ daily log ingestion — 60% faster incident detection (30min → 12min)',
+      'Built distributed Elasticsearch cluster with sub-200ms query latency handling 500GB+ daily log ingestion, 60% faster incident detection (30min → 12min)',
       'Developed ML-based anomaly detection with 92% accuracy, preventing 15+ potential breaches and saving $200K+ in damages',
       'Optimized data pipeline throughput by 45% via Docker/Kubernetes, reducing infrastructure costs by $50K annually',
       'Led published research on GPU-accelerated smart contract vulnerability detection (IEEE TPS 2025)',
@@ -45,9 +45,9 @@ const experiences = [
   {
     title: 'Software Engineer Intern',
     company: 'REINFOSEC',
-    period: 'May 2022 — Aug 2023',
+    period: 'May 2022 – Aug 2023',
     description: [
-      'Architected full-stack security training platform serving 100K+ monthly users with React and Spring Boot — 99.7% uptime, 4.8/5 user satisfaction',
+      'Architected full-stack security training platform serving 100K+ monthly users with React and Spring Boot, achieving 99.7% uptime and 4.8/5 user satisfaction',
       'Reduced API response time by 40% (800ms → 480ms) through microservices optimization, improving UX for 10K+ concurrent users',
       'Built automated testing framework increasing code coverage from 40% → 90%, reducing production bugs by 30%',
       'Implemented Jenkins CI/CD cutting deployment time by 65% and enabling 3× faster feature releases for 8-person team',

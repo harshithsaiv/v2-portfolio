@@ -4,7 +4,7 @@ const education = [
   {
     degree: 'Master of Science in Computer Science',
     school: 'California State University, Sacramento',
-    period: '2023 — Present',
+    period: '2023 – Present',
     gpa: '4.0 / 4.0',
     courses: [
       'Parallel Programming in CUDA',
@@ -16,8 +16,8 @@ const education = [
       'Distributed Systems',
     ],
     highlights: [
-      'Evergreen Graduate Research Assistant — AI & Security',
-      'Teaching Assistant — Computer Security, Blockchain, OS, Programming Logic',
+      'Evergreen Graduate Research Assistant: AI & Security',
+      'Teaching Assistant: Computer Security, Blockchain, OS, Programming Logic',
       'President, IEEE Club at Sacramento State',
     ],
   },

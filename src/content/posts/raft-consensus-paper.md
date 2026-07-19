@@ -9,4 +9,4 @@ status: notes
 link:
 ---
 
-Raft was designed to be more understandable than Paxos. After implementing RAFT-WAL in Rust I wanted to deeply understand the guarantees. Key insight: leader election with randomized timeouts is elegant — the simplicity comes from making only one server responsible for state changes at any time.
+Raft was designed to be more understandable than Paxos. After implementing RAFT-WAL in Rust I wanted to deeply understand the guarantees. Key insight: leader election with randomized timeouts is elegant. The simplicity comes from making only one server responsible for state changes at any time.

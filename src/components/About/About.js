@@ -38,7 +38,7 @@ const About = () => {
               <p>
                 AI Engineer at{' '}
                 <span className="text-secondary font-medium">Optispan</span>{' '}
-                — a longevity healthcare startup — building the clinical intelligence systems
+                (a longevity healthcare startup), building the clinical intelligence systems
                 doctors and patients actually talk to: voice agents for medical scribing,
                 telehealth AI infrastructure, and OpenEvidence-style clinical reasoning pipelines.
                 I take these from a design doc to something running in production.
@@ -56,7 +56,7 @@ const About = () => {
               <p>
                 Lately I've been pulling on two threads outside of work: compiler
                 internals (LLVM/MLIR) for ML acceleration, and client-side
-                architecture patterns (MVVM) — trying to understand the whole
+                architecture patterns (MVVM). I'm trying to understand the whole
                 stack a model runs on, not just the inference layer. More on
                 that on the{' '}
                 <Link to="/now" className="text-text-primary font-medium hover:text-secondary transition-colors">/now page</Link>.
@@ -97,8 +97,8 @@ const About = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { value: 'Agentic', label: 'clinical AI systems in production at Optispan' },
-              { value: '4.0', label: 'GPA — MS Computer Science' },
-              { value: 'IEEE', label: 'TPS 2025 — published paper' },
+              { value: '4.0', label: 'GPA · MS Computer Science' },
+              { value: 'IEEE', label: 'TPS 2025 · published paper' },
             ].map((stat, i) => (
               <div key={i} className="border-l-2 border-secondary/40 pl-5">
                 <div className="text-2xl lg:text-3xl font-black text-text-primary mb-1">{stat.value}</div>

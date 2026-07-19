@@ -1,6 +1,6 @@
 ---
 slug: designing-data-intensive-applications
-title: Designing Data-Intensive Applications — Martin Kleppmann
+title: Designing Data-Intensive Applications, by Martin Kleppmann
 date: Apr 2026
 category: book
 tags: [Distributed Systems, Databases, Architecture]

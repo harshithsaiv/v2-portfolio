@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-// Grid resolution of the pixel canvas. Kept small on purpose — the canvas
+// Grid resolution of the pixel canvas. Kept small on purpose: the canvas
 // is upscaled with CSS `image-rendering: pixelated` so each cell reads as
 // a chunky, deliberate pixel rather than an anti-aliased line.
 const COLS = 28;
@@ -43,7 +43,7 @@ function buildGrid(seed) {
       if (x < 0 || x >= COLS || y < 0 || y >= ROWS) break;
       grid[y][x] = shade;
 
-      // Mostly keep going straight — occasional right-angle turn gives the
+      // Mostly keep going straight; occasional right-angle turn gives the
       // trace-on-a-die look instead of pure noise.
       if (rand() < 0.22) {
         dir = DIRECTIONS[Math.floor(rand() * DIRECTIONS.length)];

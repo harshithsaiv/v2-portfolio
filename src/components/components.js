@@ -5,7 +5,6 @@ import Experience from './Experience/Experience';
 import Skills from './Skills/Skills';
 import Research from './Research/Research';
 import Projects from './Projects/Projects';
-import OpenToWork from './OpenToWork/OpenToWork';
 import Contact from './Contact/Contact';
 import Education from './Education/Education';
 import { loadPosts } from '../content/loadPosts';
@@ -108,8 +107,6 @@ const Components = () => {
 
   return (
     <div className="relative min-h-screen">
-      <OpenToWork />
-
       <Sidebar activeSection={activeSection} onNavigate={scrollToSection} />
       <MobileNav activeSection={activeSection} onNavigate={scrollToSection} />
 

@@ -34,7 +34,7 @@ const Now = () => {
       title: "vLLM & LLM Inference Optimization",
       url: "https://docs.vllm.ai/",
       icon: "⚡",
-      description: "PagedAttention, continuous batching, quantization — making LLM serving fast and memory-efficient"
+      description: "PagedAttention, continuous batching, quantization: making LLM serving fast and memory-efficient"
     },
     {
       title: "Advanced Deep Learning Architectures",
@@ -49,10 +49,10 @@ const Now = () => {
       description: "Raft, Paxos, replication protocols, and scalable system design"
     },
     {
-      title: "LLVM & MLIR — Compiler Infrastructure for ML",
+      title: "LLVM & MLIR: Compiler Infrastructure for ML",
       url: "https://mlir.llvm.org/",
       icon: "⚙️",
-      description: "Poking at how ML compilers lower graphs to hardware-specific IR — the compiler side of fast inference, not just the kernel side"
+      description: "Poking at how ML compilers lower graphs to hardware-specific IR, the compiler side of fast inference, not just the kernel side"
     },
     {
       title: "MVVM & Client Architecture Patterns",
@@ -84,7 +84,7 @@ const Now = () => {
           <h1 className="text-3xl lg:text-4xl font-black text-text-primary mb-3">What I'm up to</h1>
           <p className="text-xs font-mono text-stone-500">
             A <a href="https://nownownow.com/about" className="text-secondary hover:text-text-primary transition-colors" target="_blank" rel="noopener noreferrer">/now page</a>
-            {' '}— last updated{' '}
+            {' '}· last updated{' '}
             {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
         </div>
@@ -164,10 +164,10 @@ const Now = () => {
             <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">// building</h2>
             <ul className="space-y-2.5">
               {[
-                'RAFT-WAL — Write-Ahead Log with Raft consensus in safe Rust',
-                'lsm-tree — LSM storage engine (MemTable → SSTable → compaction) in Rust',
+                'RAFT-WAL: Write-Ahead Log with Raft consensus in safe Rust',
+                'lsm-tree: LSM storage engine (MemTable → SSTable → compaction) in Rust',
                 'Exploring CUDA kernel fusion for transformer attention blocks',
-                'API-Gateway-Rust — async Tokio gateway with rate limiting and zero-copy routing',
+                'API-Gateway-Rust: async Tokio gateway with rate limiting and zero-copy routing',
               ].map((item, i) => (
                 <li key={i} className="flex gap-3 text-sm text-stone-500 leading-relaxed">
                   <span className="text-secondary flex-shrink-0 mt-0.5 text-xs">▹</span>

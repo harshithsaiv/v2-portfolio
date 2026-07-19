@@ -9,4 +9,4 @@ status: notes
 link:
 ---
 
-The paper that underpins how I think about agentic pipelines at Optispan. ReAct interleaves reasoning traces with actions — the key is that the model can observe tool outputs and update its reasoning. LangGraph's state machine model maps directly to this: nodes are actions, edges are reasoning transitions.
+The paper that underpins how I think about agentic pipelines at Optispan. ReAct interleaves reasoning traces with actions: the key is that the model can observe tool outputs and update its reasoning. LangGraph's state machine model maps directly to this: nodes are actions, edges are reasoning transitions.

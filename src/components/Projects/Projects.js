@@ -11,19 +11,19 @@ const projects = [
     github: 'https://github.com/harshithsaiv/NormCompressAI',
   },
   {
-    title: 'RAFT-WAL — Distributed Consensus in Rust',
+    title: 'RAFT-WAL: Distributed Consensus in Rust',
     featured: true,
     description:
-      'Write-Ahead Log implementation backed by a Raft-lite consensus algorithm, written in safe Rust. Implements leader election, log replication, and fault-tolerant commit semantics. Designed for use as an embedded durability layer in distributed systems — production-ready, no unsafe blocks.',
+      'Write-Ahead Log implementation backed by a Raft-lite consensus algorithm, written in safe Rust. Implements leader election, log replication, and fault-tolerant commit semantics. Designed for use as an embedded durability layer in distributed systems, production-ready with no unsafe blocks.',
     metrics: ['Raft consensus', 'fault-tolerant replication', '100% safe Rust'],
     tech: ['Rust', 'Raft Protocol', 'Distributed Systems', 'WAL', 'Consensus'],
     github: 'https://github.com/harshithsaiv/RAFT-WAL',
   },
   {
-    title: 'lsm-tree — Storage Engine in Rust',
+    title: 'lsm-tree: Storage Engine in Rust',
     featured: false,
     description:
-      'K.I.S.S. implementation of an LSM-tree (Log-Structured Merge-tree) in safe Rust — the storage engine architecture behind LevelDB, RocksDB, and Cassandra. Includes MemTable, SSTable flushing, compaction, and bloom filter for key existence checks.',
+      'K.I.S.S. implementation of an LSM-tree (Log-Structured Merge-tree) in safe Rust: the storage engine architecture behind LevelDB, RocksDB, and Cassandra. Includes MemTable, SSTable flushing, compaction, and bloom filter for key existence checks.',
     metrics: ['LSM compaction', 'bloom filter', 'zero unsafe Rust'],
     tech: ['Rust', 'Storage Engine', 'LSM-tree', 'Systems Programming'],
     github: 'https://github.com/harshithsaiv/lsm-tree',
@@ -32,7 +32,7 @@ const projects = [
     title: 'API-Gateway-Rust',
     featured: false,
     description:
-      'High-performance API gateway crate built entirely in Rust. Handles request routing, middleware composition, rate limiting, and load balancing. Leverages async Rust (Tokio) for non-blocking I/O with minimal overhead — a systems-level take on what usually gets built in Go or Node.',
+      'High-performance API gateway crate built entirely in Rust. Handles request routing, middleware composition, rate limiting, and load balancing. Leverages async Rust (Tokio) for non-blocking I/O with minimal overhead. A systems-level take on what usually gets built in Go or Node.',
     metrics: ['async Tokio runtime', 'rate limiting', 'zero-copy routing'],
     tech: ['Rust', 'Tokio', 'Async I/O', 'Networking', 'Systems'],
     github: 'https://github.com/harshithsaiv/API-Gateway-Rust',
@@ -41,7 +41,7 @@ const projects = [
     title: 'SolidityAST Vulnerability Scanner',
     featured: false,
     description:
-      'Python-based static analysis tool that parses Solidity smart contract ASTs to detect vulnerability patterns. Underpins the published IEEE TPS 2025 research on GPU-accelerated vulnerability detection — the data pipeline and pattern extraction layer feeding the XAST transformer model.',
+      'Python-based static analysis tool that parses Solidity smart contract ASTs to detect vulnerability patterns. Underpins the published IEEE TPS 2025 research on GPU-accelerated vulnerability detection: the data pipeline and pattern extraction layer feeding the XAST transformer model.',
     metrics: ['AST-based analysis', 'IEEE TPS 2025 paper', '10K+ contracts analyzed'],
     tech: ['Python', 'Solidity', 'AST Parsing', 'Static Analysis', 'Security'],
     github: 'https://github.com/harshithsaiv/SolidityAST-Vulnerability-Scanner',
@@ -56,7 +56,7 @@ const projects = [
     github: 'https://github.com/harshithsaiv/QR-Code-Risk-Analyzer.git',
   },
   {
-    title: 'ServerPulse — Distributed Monitoring',
+    title: 'ServerPulse: Distributed Monitoring',
     featured: false,
     description:
       'High-performance C++ distributed monitoring system handling 10K+ metrics/second with sub-millisecond latency. Multi-threaded backend with lock-free data structures achieving 30% better throughput than industry benchmarks. WebSocket real-time dashboard. 60% faster incident response via ML-based predictive alerting.',
