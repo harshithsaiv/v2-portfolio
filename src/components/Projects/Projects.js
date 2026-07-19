@@ -72,9 +72,9 @@ const Projects = () => {
       <div className="max-w-4xl w-full animate-slide-up px-4 lg:px-0">
 
         <div className="mb-12">
-          <p className="text-xs font-mono text-secondary tracking-widest mb-2">// projects</p>
-          <h1 className="text-3xl lg:text-4xl font-black text-white">Things I&apos;ve Built</h1>
-          <p className="text-xs font-mono text-gray-600 mt-2">
+          <p className="text-xs font-mono text-secondary tracking-widest mb-2">05 / Projects</p>
+          <h1 className="text-3xl lg:text-4xl font-black text-text-primary">Things I&apos;ve Built</h1>
+          <p className="text-xs font-mono text-stone-500 mt-2">
             GPU systems · Rust infrastructure · agentic AI · distributed systems
           </p>
         </div>
@@ -83,19 +83,19 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative border border-gray-800/60 rounded-lg p-6 hover:border-secondary/30 hover:bg-gray-900/30 transition-all duration-300"
+              className="group relative border border-stone-900/10 rounded-lg p-6 hover:border-secondary/30 transition-all duration-300"
             >
               {/* Number + title row */}
               <div className="flex items-start justify-between gap-4 mb-2">
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-gray-700 select-none tabular-nums">
+                  <span className="text-xs font-mono text-stone-400 select-none tabular-nums">
                     {String(index + 1).padStart(2, '0')}.
                   </span>
-                  <h3 className="text-base font-bold text-gray-100 group-hover:text-secondary transition-colors duration-200">
+                  <h3 className="text-base font-bold text-text-primary group-hover:text-secondary transition-colors duration-200">
                     {project.title}
                   </h3>
                   {project.featured && (
-                    <span className="hidden sm:inline text-xs font-mono text-black bg-secondary px-2 py-0.5 rounded">
+                    <span className="hidden sm:inline text-xs font-mono text-primary bg-secondary px-2 py-0.5 rounded">
                       featured
                     </span>
                   )}
@@ -105,7 +105,7 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="View on GitHub"
-                  className="flex-shrink-0 text-gray-700 hover:text-secondary transition-colors duration-200"
+                  className="flex-shrink-0 text-stone-400 hover:text-secondary transition-colors duration-200"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -121,19 +121,19 @@ const Projects = () => {
               <div className="flex flex-wrap gap-x-3 gap-y-1 mb-3 pl-7">
                 {project.metrics.map((m, i) => (
                   <React.Fragment key={i}>
-                    {i > 0 && <span className="text-gray-700 text-xs font-mono">·</span>}
+                    {i > 0 && <span className="text-stone-400 text-xs font-mono">·</span>}
                     <span className="text-xs font-mono text-secondary/70">{m}</span>
                   </React.Fragment>
                 ))}
               </div>
 
-              <p className="text-sm text-gray-500 leading-relaxed mb-4 pl-7 group-hover:text-gray-400 transition-colors duration-200">
+              <p className="text-sm text-stone-500 leading-relaxed mb-4 pl-7 group-hover:text-text-secondary transition-colors duration-200">
                 {project.description}
               </p>
 
               <div className="flex flex-wrap gap-x-3 gap-y-1.5 pl-7">
                 {project.tech.map((t, i) => (
-                  <span key={i} className="text-xs font-mono text-gray-600 hover:text-gray-400 transition-colors cursor-default">
+                  <span key={i} className="text-xs font-mono text-stone-500 hover:text-text-secondary transition-colors cursor-default">
                     {t}
                   </span>
                 ))}

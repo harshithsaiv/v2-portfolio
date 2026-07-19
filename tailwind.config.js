@@ -5,10 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0a192f',
-        secondary: '#64ffda',
-        'text-primary': '#ccd6f6',
-        'text-secondary': '#8892b0',
+        primary: '#F6F3EC',
+        secondary: '#2F6D5F',
+        'text-primary': '#181614',
+        'text-secondary': '#6B6459',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -35,11 +35,12 @@ module.exports = {
         sm: '4px',
       },
       fontFamily: {
-        sans: ['"JetBrains Mono"', 'monospace'],
+        sans: ['Geist', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       typography: (theme) => ({
-        invert: {
+        DEFAULT: {
           css: {
             '--tw-prose-body': theme('colors.text-secondary'),
             '--tw-prose-headings': theme('colors.text-primary'),
@@ -48,9 +49,9 @@ module.exports = {
             '--tw-prose-code': theme('colors.secondary'),
             '--tw-prose-quotes': theme('colors.text-secondary'),
             '--tw-prose-quote-borders': theme('colors.secondary'),
-            '--tw-prose-hr': '#1e2a3a',
-            '--tw-prose-th-borders': '#1e2a3a',
-            '--tw-prose-td-borders': '#1e2a3a',
+            '--tw-prose-hr': '#E4DFD3',
+            '--tw-prose-th-borders': '#E4DFD3',
+            '--tw-prose-td-borders': '#E4DFD3',
             a: { textDecoration: 'none' },
             'a:hover': { textDecoration: 'underline' },
           },

@@ -8,10 +8,10 @@ export const categoryLabel = {
 
 export const statusStyle = {
   published: 'text-secondary border-secondary/30 bg-secondary/5',
-  notes: 'text-gray-500 border-gray-700/50 bg-gray-900/30',
-  project: 'text-blue-400 border-blue-400/30 bg-blue-400/5',
-  wip: 'text-yellow-400 border-yellow-400/30 bg-yellow-400/5',
-  reading: 'text-purple-400 border-purple-400/30 bg-purple-400/5',
+  notes: 'text-stone-500 border-stone-300 bg-stone-100',
+  project: 'text-blue-700 border-blue-600/30 bg-blue-50',
+  wip: 'text-amber-700 border-amber-600/30 bg-amber-50',
+  reading: 'text-purple-700 border-purple-600/30 bg-purple-50',
 };
 
 export const statusLabel = {

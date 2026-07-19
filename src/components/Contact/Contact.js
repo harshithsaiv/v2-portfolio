@@ -1,224 +1,17 @@
-import React, { useState, useRef, lazy, Suspense } from 'react';
-// Lazy load reCAPTCHA
-const ReCAPTCHA = lazy(() => import("react-google-recaptcha"));
+import React from 'react';
 
 const Contact = () => {
-  // Form state - use a single state object to reduce re-renders
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [formStatus, setFormStatus] = useState({
-    submitting: false,
-    submitted: false,
-    error: null
-  });
-  
-  // Use a ref for captcha value to avoid unnecessary re-renders
-  const captchaValueRef = useRef(null);
-  const recaptchaRef = useRef(null);
-  
-  // Only show captcha when user starts interacting with the form
-  const [showCaptcha, setShowCaptcha] = useState(false);
-
-  // Handle input changes - optimized to use a callback function
-  const handleInputChange = React.useCallback((e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Show captcha after user starts typing
-    if (!showCaptcha) {
-      setShowCaptcha(true);
-    }
-  }, [showCaptcha]);
-
-  // Handle captcha change - use ref instead of state
-  const handleCaptchaChange = React.useCallback((value) => {
-    captchaValueRef.current = value;
-  }, []);
-
-  // Handle form submission - optimized
-  const handleSubmit = React.useCallback(async (e) => {
-    e.preventDefault();
-    
-    // Validate form
-    if (!formData.name || !formData.email || !formData.message) {
-      setFormStatus({
-        submitting: false,
-        submitted: false,
-        error: "All fields are required"
-      });
-      return;
-    }
-    
-    // Validate captcha
-    if (!captchaValueRef.current) {
-      setFormStatus({
-        submitting: false,
-        submitted: false,
-        error: "Please complete the captcha"
-      });
-      return;
-    }
-    
-    // Submit form
-    setFormStatus({ submitting: true, submitted: false, error: null });
-    
-    try {
-      // Send the form data to your API Gateway endpoint
-      const response = await fetch('https://your-api-gateway-url.amazonaws.com/prod/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          captchaValue: captchaValueRef.current
-        }),
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || 'Failed to send message');
-      }
-      
-      // Reset form after successful submission
-      setFormData({ name: '', email: '', message: '' });
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
-      captchaValueRef.current = null;
-      setFormStatus({
-        submitting: false,
-        submitted: true,
-        error: null
-      });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setFormStatus({
-        submitting: false,
-        submitted: false,
-        error: error.message || "Failed to send message. Please try again."
-      });
-    }
-  }, [formData]);
-
-  // Memoize contact form elements to prevent unnecessary re-renders
-  // const contactForm = React.useMemo(() => (
-  //   <form onSubmit={handleSubmit} className="space-y-4">
-  //     <div>
-  //       <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-1">
-  //         Name
-  //       </label>
-  //       <input
-  //         type="text"
-  //         id="name"
-  //         name="name"
-  //         value={formData.name}
-  //         onChange={handleInputChange}
-  //         className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-  //         placeholder="Your name"
-  //       />
-  //     </div>
-      
-  //     <div>
-  //       <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-1">
-  //         Email
-  //       </label>
-  //       <input
-  //         type="email"
-  //         id="email"
-  //         name="email"
-  //         value={formData.email}
-  //         onChange={handleInputChange}
-  //         className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-  //         placeholder="your.email@example.com"
-  //       />
-  //     </div>
-      
-  //     <div>
-  //       <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-1">
-  //         Message
-  //       </label>
-  //       <textarea
-  //         id="message"
-  //         name="message"
-  //         value={formData.message}
-  //         onChange={handleInputChange}
-  //         rows={5}
-  //         className="w-full bg-background-tertiary border border-border rounded-md px-4 py-2 text-black font-semibold focus:outline-none focus:ring-2 focus:ring-secondary"
-  //         placeholder="What would you like to say?"
-  //       />
-  //     </div>
-      
-  //     {showCaptcha && (
-  //       <div className="pt-2">
-  //         <Suspense fallback={<div className="h-78 flex items-center justify-center">Loading captcha...</div>}>
-  //           <ReCAPTCHA
-  //             ref={recaptchaRef}
-  //             sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Replace with your site key
-  //             onChange={handleCaptchaChange}
-  //             theme="dark"
-  //           />
-  //         </Suspense>
-  //       </div>
-  //     )}
-      
-  //     {formStatus.error && (
-  //       <div className="p-3 bg-red-500/20 border border-red-500 rounded-md text-red-300 text-sm">
-  //         {formStatus.error}
-  //       </div>
-  //     )}
-      
-  //     <div>
-  //       <button
-  //         type="submit"
-  //         disabled={formStatus.submitting}
-  //         className={`w-full px-6 py-3 text-sm lg:text-base text-white bg-secondary hover:bg-secondary/80 rounded-md transition-all duration-300 flex items-center justify-center ${
-  //           formStatus.submitting ? "opacity-70 cursor-not-allowed" : ""
-  //         }`}
-  //       >
-  //         {formStatus.submitting ? (
-  //           <>
-  //             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-  //               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-  //               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-  //             </svg>
-  //             Sending...
-  //           </>
-  //         ) : (
-  //           "Send Message"
-  //         )}
-  //       </button>
-  //     </div>
-  //   </form>
-  // ), [formData, formStatus, handleInputChange, handleSubmit, showCaptcha]);
-
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="max-w-3xl w-full animate-slide-up">
-        <h1 className="text-3xl lg:text-4xl font-bold text-secondary mb-8">Get In Touch</h1>
+        <p className="text-xs font-mono text-secondary tracking-widest mb-3">08 / Contact</p>
+        <h1 className="text-3xl lg:text-4xl font-black text-text-primary mb-8">Get In Touch</h1>
         <div className="space-y-6">
           <p className="text-sm lg:text-base text-text-secondary leading-relaxed">
-            I'm currently looking for new opportunities, and my inbox is always open. 
+            I'm currently looking for new opportunities, and my inbox is always open.
             Whether you have a question, opportunity, or just want to say hi, I'll get back to you!
           </p>
-          
-          {/* Contact Form */}
-          {/* <div className="bg-background-secondary/30 p-6 rounded-lg border border-border">
-            <h2 className="text-xl font-semibold text-white mb-4">Send me a message</h2>
-            
-            {formStatus.submitted ? (
-              <div className="p-4 bg-green-500/20 border border-green-500 rounded-md text-green-300">
-                Your message has been sent! I'll get back to you soon.
-              </div>
-            ) : contactForm}
-          </div> */}
-          
+
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <svg className="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +19,7 @@ const Contact = () => {
               </svg>
               <a 
                 href="mailto:harshithsaiveeraiah@gmail.com"
-                className="text-sm lg:text-base text-text-secondary hover:text-white transition-colors duration-300"
+                className="text-sm lg:text-base text-text-secondary hover:text-text-primary transition-colors duration-300"
               >
                 harshithsaiveeraiah@gmail.com
               </a>
@@ -240,7 +33,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/in/harshith-sai-v/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm lg:text-base text-text-secondary hover:text-white transition-colors duration-300"
+                className="text-sm lg:text-base text-text-secondary hover:text-text-primary transition-colors duration-300"
               >
                 linkedin.com/in/harshith-sai-v
               </a>
@@ -254,7 +47,7 @@ const Contact = () => {
                 href="https://github.com/harshithsaiv"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm lg:text-base text-text-secondary hover:text-white transition-colors duration-300"
+                className="text-sm lg:text-base text-text-secondary hover:text-text-primary transition-colors duration-300"
               >
                 github.com/harshithsaiv
               </a>
@@ -264,7 +57,7 @@ const Contact = () => {
           <div className="mt-8 text-center">
             <a
               href="/Harshith_Resume_Software_Engineering-4.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm lg:text-base text-white bg-secondary/10 border border-secondary rounded-md hover:bg-secondary/20 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm lg:text-base text-text-primary bg-secondary/10 border border-secondary rounded-md hover:bg-secondary/20 transition-all duration-300"
               download
             >
               <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

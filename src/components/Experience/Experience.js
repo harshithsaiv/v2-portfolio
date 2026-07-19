@@ -62,13 +62,13 @@ const Experience = () => {
       <div className="max-w-4xl w-full animate-slide-up px-4 lg:px-0">
 
         <div className="mb-12">
-          <p className="text-xs font-mono text-secondary tracking-widest mb-2">// experience</p>
-          <h1 className="text-3xl lg:text-4xl font-black text-white">Where I&apos;ve Worked</h1>
+          <p className="text-xs font-mono text-secondary tracking-widest mb-2">03 / Experience</p>
+          <h1 className="text-3xl lg:text-4xl font-black text-text-primary">Where I&apos;ve Worked</h1>
         </div>
 
         <div className="relative">
           {/* Timeline vertical line */}
-          <div className="absolute left-0 top-2 bottom-2 w-px bg-gray-800/80" />
+          <div className="absolute left-0 top-2 bottom-2 w-px bg-stone-900/10" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -77,28 +77,28 @@ const Experience = () => {
                 <div className={`absolute left-[-4px] top-1.5 w-2 h-2 rounded-full border transition-colors duration-300 ${
                   exp.current
                     ? 'bg-secondary border-secondary'
-                    : 'bg-gray-700 border-gray-600 group-hover:bg-secondary group-hover:border-secondary'
+                    : 'bg-stone-300 border-stone-300 group-hover:bg-secondary group-hover:border-secondary'
                 }`} />
 
                 <div className="mb-1 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
-                  <h3 className="text-lg font-bold text-gray-100 group-hover:text-secondary transition-colors duration-200">
+                  <h3 className="text-lg font-bold text-text-primary group-hover:text-secondary transition-colors duration-200">
                     {exp.title}
                   </h3>
                   <span className="text-secondary text-sm font-mono">@ {exp.company}</span>
                   {exp.current && (
-                    <span className="text-xs font-mono text-black bg-secondary px-1.5 py-0.5 rounded self-start sm:self-auto">
+                    <span className="text-xs font-mono text-primary bg-secondary px-1.5 py-0.5 rounded self-start sm:self-auto">
                       current
                     </span>
                   )}
                 </div>
                 {exp.companyNote && (
-                  <p className="text-xs font-mono text-gray-600 mb-0.5">{exp.companyNote}</p>
+                  <p className="text-xs font-mono text-stone-500 mb-0.5">{exp.companyNote}</p>
                 )}
-                <p className="text-xs font-mono text-gray-600 mb-4">{exp.period}</p>
+                <p className="text-xs font-mono text-stone-500 mb-4">{exp.period}</p>
 
                 <ul className="space-y-2.5 mb-5">
                   {exp.description.map((desc, i) => (
-                    <li key={i} className="flex gap-3 text-sm text-gray-500 leading-relaxed group-hover:text-gray-400 transition-colors duration-200">
+                    <li key={i} className="flex gap-3 text-sm text-stone-500 leading-relaxed group-hover:text-text-secondary transition-colors duration-200">
                       <span className="text-secondary flex-shrink-0 mt-0.5 text-xs">▹</span>
                       {desc}
                     </li>
@@ -109,7 +109,7 @@ const Experience = () => {
                   {exp.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="text-xs font-mono text-gray-600 border border-gray-800/60 rounded px-2 py-0.5 hover:text-secondary hover:border-secondary/30 transition-all duration-200 cursor-default"
+                      className="text-xs font-mono text-stone-500 border border-stone-900/10 rounded px-2 py-0.5 hover:text-secondary hover:border-secondary/30 transition-all duration-200 cursor-default"
                     >
                       {t}
                     </span>

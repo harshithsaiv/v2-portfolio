@@ -89,9 +89,9 @@ const Skills = () => {
       <div className="max-w-4xl w-full animate-slide-up px-4 lg:px-0">
 
         <div className="mb-12">
-          <p className="text-xs font-mono text-secondary tracking-widest mb-2">// skills</p>
-          <h1 className="text-3xl lg:text-4xl font-black text-white">Technical Proficiencies</h1>
-          <p className="text-xs font-mono text-gray-600 mt-2">
+          <p className="text-xs font-mono text-secondary tracking-widest mb-2">04 / Skills</p>
+          <h1 className="text-3xl lg:text-4xl font-black text-text-primary">Technical Proficiencies</h1>
+          <p className="text-xs font-mono text-stone-500 mt-2">
             <span className="text-secondary">★</span> denotes expert-level proficiency
           </p>
         </div>
@@ -99,7 +99,7 @@ const Skills = () => {
         <div className="space-y-10">
           {skillCategories.map((category, index) => (
             <div key={index}>
-              <p className="text-xs font-mono text-gray-600 mb-4 tracking-widest">// {category.label}</p>
+              <p className="text-xs font-mono text-stone-500 mb-4 tracking-widest">// {category.label}</p>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
                   <span
@@ -107,7 +107,7 @@ const Skills = () => {
                     className={`px-3 py-1.5 text-sm font-mono rounded border transition-all duration-200 cursor-default hover:border-secondary/40 hover:bg-secondary/5 ${
                       skill.expert
                         ? 'text-secondary border-secondary/40 bg-secondary/5'
-                        : 'text-gray-400 border-gray-800/60 bg-gray-900/20'
+                        : 'text-stone-500 border-stone-900/10 bg-stone-100'
                     }`}
                   >
                     {skill.name}

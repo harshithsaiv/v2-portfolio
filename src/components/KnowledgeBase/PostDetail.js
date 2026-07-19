@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import 'highlight.js/styles/atom-one-dark.css';
+import 'highlight.js/styles/atom-one-light.css';
 import { loadPost } from '../../content/loadPosts';
 import { categoryLabel, statusStyle, statusLabel } from '../../content/postMeta';
 
@@ -32,8 +32,8 @@ const PostDetail = () => {
     return (
       <div className="min-h-screen py-12 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-sm font-mono text-gray-500 mb-4">Post not found.</p>
-          <Link to="/knowledge-base" className="text-xs font-mono text-secondary hover:text-white transition-colors">
+          <p className="text-sm font-mono text-stone-500 mb-4">Post not found.</p>
+          <Link to="/knowledge-base" className="text-xs font-mono text-secondary hover:text-text-primary transition-colors">
             ← back to knowledge base
           </Link>
         </div>
@@ -45,7 +45,7 @@ const PostDetail = () => {
     return (
       <div className="min-h-screen py-12 px-4">
         <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-mono text-gray-600">loading…</p>
+          <p className="text-xs font-mono text-stone-500">loading…</p>
         </div>
       </div>
     );
@@ -56,11 +56,11 @@ const PostDetail = () => {
       <div className="max-w-3xl mx-auto animate-fade-in">
         {/* Nav */}
         <nav className="mb-12 flex items-center gap-4">
-          <Link to="/" className="text-xs font-mono text-gray-600 hover:text-secondary transition-colors">
+          <Link to="/" className="text-xs font-mono text-stone-500 hover:text-secondary transition-colors">
             ← home
           </Link>
-          <span className="text-gray-800 text-xs">·</span>
-          <Link to="/knowledge-base" className="text-xs font-mono text-gray-600 hover:text-secondary transition-colors">
+          <span className="text-stone-300 text-xs">·</span>
+          <Link to="/knowledge-base" className="text-xs font-mono text-stone-500 hover:text-secondary transition-colors">
             knowledge base
           </Link>
         </nav>
@@ -68,21 +68,21 @@ const PostDetail = () => {
         {/* Header */}
         <div className="mb-8">
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="text-xs font-mono text-gray-700">{post.date}</span>
-            <span className="text-gray-800 text-xs">·</span>
-            <span className="text-xs font-mono text-gray-600">{categoryLabel[post.category]}</span>
-            <span className="text-gray-800 text-xs">·</span>
+            <span className="text-xs font-mono text-stone-400">{post.date}</span>
+            <span className="text-stone-300 text-xs">·</span>
+            <span className="text-xs font-mono text-stone-500">{categoryLabel[post.category]}</span>
+            <span className="text-stone-300 text-xs">·</span>
             <span className={`text-xs font-mono px-1.5 py-0.5 rounded border ${statusStyle[post.status]}`}>
               {statusLabel[post.status]}
             </span>
-            <span className="ml-auto text-xs font-mono text-gray-700">{post.readTime}</span>
+            <span className="ml-auto text-xs font-mono text-stone-400">{post.readTime}</span>
           </div>
 
-          <h1 className="text-2xl lg:text-3xl font-black text-white mb-4 leading-snug">{post.title}</h1>
+          <h1 className="text-2xl lg:text-3xl font-black text-text-primary mb-4 leading-snug">{post.title}</h1>
 
           <div className="flex flex-wrap gap-1.5 mb-4">
             {(post.tags || []).map((tag) => (
-              <span key={tag} className="text-xs font-mono text-gray-600">
+              <span key={tag} className="text-xs font-mono text-stone-500">
                 #{tag.toLowerCase().replace(/\s+/g, '-')}
               </span>
             ))}
@@ -93,7 +93,7 @@ const PostDetail = () => {
               href={post.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-secondary hover:text-white transition-colors duration-200"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-secondary hover:text-text-primary transition-colors duration-200"
             >
               {post.category === 'paper' ? 'Read paper' : post.category === 'book' ? 'Book link' : 'View on GitHub'}
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@ const PostDetail = () => {
         </div>
 
         {/* Body */}
-        <div className="prose prose-invert prose-sm max-w-none border-t border-gray-800/50 pt-8">
+        <div className="prose prose-sm max-w-none border-t border-stone-900/10 pt-8">
           <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>
             {post.body}
           </ReactMarkdown>

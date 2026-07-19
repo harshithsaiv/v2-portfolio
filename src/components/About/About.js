@@ -15,13 +15,11 @@ const About = () => {
 
         {/* Hero */}
         <div className="mb-20">
-          <p className="text-secondary font-mono text-sm mb-4 tracking-wider">
-            <span className="opacity-50">&gt;_ </span>Hi, my name is
-          </p>
-          <h1 className="text-5xl lg:text-7xl font-black text-white mb-3 tracking-tight leading-none">
-            Harshith Sai Veeraiah.
+          <p className="text-xs font-mono text-secondary tracking-[0.2em] mb-5 uppercase">01 / About</p>
+          <h1 className="font-serif italic text-6xl lg:text-8xl text-text-primary mb-3 tracking-tight leading-none">
+            Harshith Sai Veeraiah
           </h1>
-          <h2 className="text-2xl lg:text-4xl font-black text-gray-500 mb-10 tracking-tight leading-snug">
+          <h2 className="font-sans text-2xl lg:text-4xl font-bold text-text-secondary mb-10 tracking-tight leading-snug">
             I build intelligent systems that ship.
             <span
               className="inline-block w-0.5 h-7 lg:h-10 bg-secondary ml-1.5 align-middle"
@@ -29,10 +27,10 @@ const About = () => {
             />
           </h2>
 
-          <div className="max-w-2xl space-y-4 text-base text-gray-400 leading-relaxed">
+          <div className="max-w-2xl space-y-4 text-base text-text-secondary leading-relaxed">
             <p>
               AI Engineer at{' '}
-              <span className="text-secondary">Optispan</span>{' '}
+              <span className="text-secondary font-medium">Optispan</span>{' '}
               — a longevity healthcare startup — where I build agentic clinical intelligence systems:
               voice agents for medical scribing, telehealth AI infrastructure, and
               OpenEvidence-style clinical reasoning pipelines. I own features
@@ -40,13 +38,13 @@ const About = () => {
             </p>
             <p>
               Previously at{' '}
-              <span className="text-gray-200">State Street Global Markets</span>{' '}
+              <span className="text-text-primary font-medium">State Street Global Markets</span>{' '}
               and{' '}
-              <span className="text-gray-200">CSU Sacramento</span>{' '}
+              <span className="text-text-primary font-medium">CSU Sacramento</span>{' '}
               building GPU-accelerated ML systems and trading infrastructure.
               MS Computer Science (4.0 GPA) with published research in
               GPU-accelerated smart contract security at{' '}
-              <span className="text-gray-200">IEEE TPS 2025</span>.
+              <span className="text-text-primary font-medium">IEEE TPS 2025</span>.
             </p>
             <p>
               Lately I've been pulling on two threads outside of work: compiler
@@ -54,14 +52,14 @@ const About = () => {
               architecture patterns (MVVM) — trying to understand the whole
               stack a model runs on, not just the inference layer. More on
               that on the{' '}
-              <Link to="/now" className="text-gray-200 hover:text-secondary transition-colors">/now page</Link>.
+              <Link to="/now" className="text-text-primary font-medium hover:text-secondary transition-colors">/now page</Link>.
             </p>
           </div>
         </div>
 
         {/* Core Technologies */}
         <div className="mb-20">
-          <p className="text-xs font-mono text-gray-600 mb-4 tracking-widest">// core technologies</p>
+          <p className="text-xs font-mono text-stone-500 mb-4 tracking-widest">// core technologies</p>
           <div className="flex flex-wrap gap-2">
             {[
               'Python & LangGraph',
@@ -83,7 +81,7 @@ const About = () => {
 
         {/* Key Numbers */}
         <div className="mb-20">
-          <p className="text-xs font-mono text-gray-600 mb-6 tracking-widest">// by the numbers</p>
+          <p className="text-xs font-mono text-stone-500 mb-6 tracking-widest">// by the numbers</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { value: 'Agentic', label: 'clinical AI systems in production at Optispan' },
@@ -91,22 +89,22 @@ const About = () => {
               { value: 'IEEE', label: 'TPS 2025 — published paper' },
             ].map((stat, i) => (
               <div key={i} className="border-l-2 border-secondary/40 pl-5">
-                <div className="text-2xl lg:text-3xl font-black text-white mb-1">{stat.value}</div>
-                <div className="text-xs font-mono text-gray-500 leading-snug">{stat.label}</div>
+                <div className="text-2xl lg:text-3xl font-black text-text-primary mb-1">{stat.value}</div>
+                <div className="text-xs font-mono text-stone-500 leading-snug">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Targeting */}
-        <div className="border border-gray-800/60 rounded-lg p-6 bg-gray-900/20">
+        <div className="border border-stone-900/10 rounded-lg p-6">
           <p className="text-xs font-mono text-secondary mb-3 tracking-widest">// targeting</p>
-          <p className="text-sm font-mono text-gray-300 mb-1">
+          <p className="text-sm font-mono text-text-primary mb-1">
             AI Engineer &nbsp;·&nbsp; Inference Engineer &nbsp;·&nbsp; Product Engineer &nbsp;·&nbsp; Software Engineer
           </p>
-          <p className="text-sm text-gray-500 mb-5 mt-3 max-w-xl leading-relaxed">
+          <p className="text-sm text-text-secondary mb-5 mt-3 max-w-xl leading-relaxed">
             Looking for roles where I can{' '}
-            <span className="text-gray-200">own intelligent systems end-to-end</span>{' '}
+            <span className="text-text-primary font-medium">own intelligent systems end-to-end</span>{' '}
             — architecture, infrastructure, and product decisions.
             Healthcare AI, developer tools, and inference systems are particularly exciting.
           </p>
@@ -114,7 +112,7 @@ const About = () => {
             <a
               href="/Harshith_Resume_Software_Engineering-4.pdf"
               download
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-mono text-black bg-secondary hover:bg-secondary/90 rounded transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-mono text-primary bg-secondary hover:bg-secondary/90 rounded transition-all duration-200"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
