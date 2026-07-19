@@ -48,6 +48,14 @@ const About = () => {
               GPU-accelerated smart contract security at{' '}
               <span className="text-gray-200">IEEE TPS 2025</span>.
             </p>
+            <p>
+              Lately I've been pulling on two threads outside of work: compiler
+              internals (LLVM/MLIR) for ML acceleration, and client-side
+              architecture patterns (MVVM) — trying to understand the whole
+              stack a model runs on, not just the inference layer. More on
+              that on the{' '}
+              <Link to="/now" className="text-gray-200 hover:text-secondary transition-colors">/now page</Link>.
+            </p>
           </div>
         </div>
 

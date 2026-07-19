@@ -48,6 +48,18 @@ const Now = () => {
       icon: "🔗",
       description: "Raft, Paxos, replication protocols, and scalable system design"
     },
+    {
+      title: "LLVM & MLIR — Compiler Infrastructure for ML",
+      url: "https://mlir.llvm.org/",
+      icon: "⚙️",
+      description: "Poking at how ML compilers lower graphs to hardware-specific IR — the compiler side of fast inference, not just the kernel side"
+    },
+    {
+      title: "MVVM & Client Architecture Patterns",
+      url: "https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel",
+      icon: "🧩",
+      description: "Rounding out inference/backend work with how state and UI composition hold together on the client side"
+    },
   ];
 
   return (
@@ -149,6 +161,22 @@ const Now = () => {
                 </li>
               ))}
             </ul>
+          </section>
+
+          {/* Away From the Keyboard */}
+          <section className="space-y-4">
+            <h2 className="text-xs font-mono text-gray-600 tracking-widest mb-6">// away from the keyboard</h2>
+            <div className="flex items-center gap-5 border border-gray-800/60 rounded-lg p-4">
+              <img
+                src="/Strava.jpg"
+                alt="Running"
+                className="w-20 h-20 rounded-lg object-cover flex-shrink-0 border border-gray-800/60"
+              />
+              <p className="text-sm text-gray-500 leading-relaxed">
+                When I'm not at a keyboard, I'm usually running. The same discipline that gets me
+                through a long training block is the one that gets me through a long debugging session.
+              </p>
+            </div>
           </section>
 
           {/* GitHub Activity */}
