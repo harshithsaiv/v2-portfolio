@@ -11,6 +11,7 @@ import { loadPosts } from '../content/loadPosts';
 import { categoryLabel } from '../content/postMeta';
 import Sidebar from './elements/Sidebar';
 import MobileNav from './elements/MobileNav';
+import LogTicker from './elements/LogTicker';
 
 const WritingPreview = () => {
   const [posts, setPosts] = useState([]);
@@ -116,7 +117,12 @@ const Components = () => {
           <section id="about" className="min-h-screen">
             <About />
           </section>
-          <section id="education" className="pb-24">
+        </div>
+
+        <LogTicker />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
+          <section id="education" className="pt-24 pb-24">
             <Education />
           </section>
           <section id="experience" className="pb-24">

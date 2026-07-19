@@ -14,6 +14,7 @@ module.exports = {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+        'marquee': 'marquee 32s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -29,6 +30,10 @@ module.exports = {
             transform: 'scale(2)',
             opacity: '0',
           },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       backdropBlur: {
