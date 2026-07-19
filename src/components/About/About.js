@@ -19,6 +19,12 @@ const About = () => {
           <h1 className="font-serif italic text-6xl lg:text-8xl text-text-primary mb-3 tracking-tight leading-none">
             Harshith Sai Veeraiah
           </h1>
+          <p className="text-xs sm:text-sm font-mono text-secondary tracking-wide mb-6">
+            Problems I love to solve:{' '}
+            <span className="text-text-primary font-medium">Intelligence per Watt</span>
+            <span className="text-stone-400"> · </span>
+            <span className="text-text-primary font-medium">Intelligence per Sample</span>
+          </p>
           <h2 className="font-sans text-2xl lg:text-4xl font-bold text-text-secondary mb-10 tracking-tight leading-snug">
             I build intelligent systems that ship.
             <span

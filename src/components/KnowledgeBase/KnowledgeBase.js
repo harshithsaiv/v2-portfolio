@@ -16,10 +16,10 @@ const KnowledgeBase = () => {
     : posts.filter(p => p.category === activeCategory);
 
   return (
-    <div className="min-h-screen py-12 px-4">
+    <div className="min-h-screen pt-24 sm:pt-28 pb-12 px-4">
       <div className="max-w-3xl mx-auto animate-fade-in">
 
-        {/* Nav */}
+        {/* Breadcrumb */}
         <nav className="mb-12 flex items-center gap-4">
           <Link
             to="/"

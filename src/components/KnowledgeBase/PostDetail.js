@@ -30,7 +30,7 @@ const PostDetail = () => {
 
   if (notFound) {
     return (
-      <div className="min-h-screen py-12 px-4">
+      <div className="min-h-screen pt-24 sm:pt-28 pb-12 px-4">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-sm font-mono text-stone-500 mb-4">Post not found.</p>
           <Link to="/knowledge-base" className="text-xs font-mono text-secondary hover:text-text-primary transition-colors">
@@ -43,7 +43,7 @@ const PostDetail = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen py-12 px-4">
+      <div className="min-h-screen pt-24 sm:pt-28 pb-12 px-4">
         <div className="max-w-3xl mx-auto">
           <p className="text-xs font-mono text-stone-500">loading…</p>
         </div>
@@ -52,9 +52,9 @@ const PostDetail = () => {
   }
 
   return (
-    <div className="min-h-screen py-12 px-4">
+    <div className="min-h-screen pt-24 sm:pt-28 pb-12 px-4">
       <div className="max-w-3xl mx-auto animate-fade-in">
-        {/* Nav */}
+        {/* Breadcrumb */}
         <nav className="mb-12 flex items-center gap-4">
           <Link to="/" className="text-xs font-mono text-stone-500 hover:text-secondary transition-colors">
             ← home

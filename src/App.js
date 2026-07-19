@@ -4,6 +4,7 @@ import Components from './components/components';
 import Now from './components/Now/Now';
 import KnowledgeBase from './components/KnowledgeBase/KnowledgeBase';
 import PostDetail from './components/KnowledgeBase/PostDetail';
+import Nav from './components/Nav/Nav';
 import { trackPageView } from './lib/analytics';
 
 function AnalyticsTracker() {
@@ -21,6 +22,7 @@ function App() {
     <div className="min-h-screen bg-primary text-text-primary flex flex-col">
       <Router>
         <AnalyticsTracker />
+        <Nav />
         <div className="flex-grow">
           <Routes>
             <Route path="/" element={<Components />} />
