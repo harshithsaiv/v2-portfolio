@@ -1,9 +1,15 @@
-import { bootWords } from "../../../stores/bootWords";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import LogoAssembly from "./LogoAssembly";
 
-const BootElement = () => {
-  const [index, setIndex] = useState(0);
+// How long the curve-wipe exit animation takes to play before we hand off
+// to the real site. Keep in sync with the `exit` variant durations below.
+const EXIT_TRANSITION_MS = 700;
+// Safety net: never let the boot screen hang indefinitely if the canvas
+// animation fails to fire its completion callback for any reason.
+const FAILSAFE_MS = 9000;
+
+const BootElement = ({ onComplete }) => {
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   const [shouldExit, setShouldExit] = useState(false);
 
@@ -11,20 +17,18 @@ const BootElement = () => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });
   }, []);
 
+  const handleSequenceComplete = useCallback(() => {
+    setShouldExit((already) => {
+      if (already) return already;
+      setTimeout(() => onComplete && onComplete(), EXIT_TRANSITION_MS);
+      return true;
+    });
+  }, [onComplete]);
+
   useEffect(() => {
-    if (index == bootWords.length - 1) {
-      // Immediately trigger exit animation after the last word
-      setShouldExit(true);
-      return;
-    }
-    
-    setTimeout(
-      () => {
-        setIndex(index + 1);
-      },
-      index == 0 ? 500 : 300
-    );
-  }, [index]);
+    const failsafe = setTimeout(handleSequenceComplete, FAILSAFE_MS);
+    return () => clearTimeout(failsafe);
+  }, [handleSequenceComplete]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
     dimension.height
@@ -42,7 +46,7 @@ const BootElement = () => {
     },
     exit: {
       d: targetPath,
-      transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1], delay: 0.1 }, // Further reduced delay
+      transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1], delay: 0.1 },
     },
   };
 
@@ -54,41 +58,22 @@ const BootElement = () => {
         },
         exit: {
           top: "-100vh",
-          transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1], delay: 0.1 }, // Made faster
+          transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1], delay: 0.1 },
         },
       }}
       initial="initial"
       animate={shouldExit ? "exit" : "initial"}
-      className="h-[100vh] w-[100vw] flex items-center justify-center fixed z-[99] bg-[#000000]"
+      exit="exit"
+      className="h-[100vh] w-[100vw] flex items-center justify-center fixed z-[99] bg-[#000000] overflow-hidden"
     >
       {dimension.width > 0 && (
         <>
-          <motion.p
-            key={index}
-            variants={{
-              initial: {
-                opacity: 0,
-                y: 20,
-              },
-              enter: {
-                opacity: 0.85,
-                y: 0,
-                transition: { duration: 0.3, delay: 0.05 },
-              },
-              exit: {
-                opacity: 0,
-                y: -20,
-                transition: { duration: 0.2 }, // Even faster exit
-              }
-            }}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            className="flex bg-gradient-to-br from-[#D8E3EB] to-[#4b4b4b] bg-clip-text text-transparent font-poppins font-bold text-[72px] items-center absolute z-[1]"
-          >
-            {bootWords[index]}
-          </motion.p>
-          <svg className="absolute top-0 w-[100%] h-[calc(100% + 200px)]">
+          <LogoAssembly
+            width={dimension.width}
+            height={dimension.height}
+            onComplete={handleSequenceComplete}
+          />
+          <svg className="absolute top-0 w-[100%] h-[calc(100% + 200px)] pointer-events-none">
             <motion.path
               variants={curve}
               initial="initial"

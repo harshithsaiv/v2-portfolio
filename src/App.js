@@ -27,22 +27,19 @@ function App() {
 
   useEffect(() => {
     document.body.style.cursor = "default";
-    if (!isLoading) return;
+  }, []);
 
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      sessionStorage.setItem('bootSeen', 'true');
-      window.scrollTo(0, 0);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [isLoading]);
+  const handleBootComplete = () => {
+    setIsLoading(false);
+    sessionStorage.setItem('bootSeen', 'true');
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className="min-h-screen bg-primary text-text-primary flex flex-col">
       <AnimatePresence mode="wait">
         {isLoading ? (
-          <BootElement />
+          <BootElement onComplete={handleBootComplete} />
         ) : (
           <Router>
             <AnalyticsTracker />
