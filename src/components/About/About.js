@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TokenJar from '../elements/TokenJar';
+import BookShelf from '../elements/BookShelf';
 
 const About = () => {
   const [cursor, setCursor] = useState(true);
@@ -64,8 +65,9 @@ const About = () => {
             </div>
           </div>
 
-          <div className="lg:mt-24">
+          <div className="lg:mt-24 flex flex-col gap-6">
             <TokenJar />
+            <BookShelf />
           </div>
         </div>
 
