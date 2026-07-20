@@ -5,7 +5,7 @@ const experiences = [
     title: 'AI Engineer · Founding Engineer',
     company: 'Optispan',
     companyNote: 'Longevity Healthcare · Startup',
-    period: '2024 – Present',
+    period: 'Feb 2025 – Present',
     current: true,
     description: [
       'Building agentic clinical intelligence systems: architected multi-step reasoning pipelines for medical knowledge retrieval (OpenEvidence-style), integrating vector search, reranking, and LLM synthesis for clinical decision support',
@@ -22,7 +22,7 @@ const experiences = [
   {
     title: 'Software Engineering Intern',
     company: 'State Street Global Markets',
-    period: 'Summer 2024',
+    period: 'Summer 2025',
     description: [
       'Reduced trading platform latency by 35% (600ms → 390ms) through Java/Spring Boot optimization, enabling $10M+ in additional daily transaction volume across global markets',
       'Architected RESTful microservices handling 10K+ concurrent requests/second with 99.95% uptime for 500+ institutional clients',
@@ -35,7 +35,7 @@ const experiences = [
   {
     title: 'Software Developer & AI Research Assistant',
     company: 'California State University, Sacramento',
-    period: 'Jan 2023 – 2024',
+    period: 'Jan 2024 – Dec 2025',
     description: [
       'Engineered GPU-accelerated SIEM platform processing 1M+ security events/hour across 5,000+ campus devices using CUDA and PyTorch, achieving 99.9% uptime',
       'Built distributed Elasticsearch cluster with sub-200ms query latency handling 500GB+ daily log ingestion, 60% faster incident detection (30min → 12min)',
