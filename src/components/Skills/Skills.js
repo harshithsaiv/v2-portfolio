@@ -99,7 +99,7 @@ const Skills = () => {
         <div className="space-y-10">
           {skillCategories.map((category, index) => (
             <div key={index}>
-              <p className="text-xs font-mono text-stone-500 mb-4 tracking-widest">// {category.label}</p>
+              <p className="text-xs font-mono text-stone-500 mb-4 tracking-widest">{`// ${category.label}`}</p>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
                   <span

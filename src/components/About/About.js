@@ -73,7 +73,7 @@ const About = () => {
 
         {/* Core Technologies */}
         <div className="mb-20">
-          <p className="text-xs font-mono text-stone-500 mb-4 tracking-widest">// core technologies</p>
+          <p className="text-xs font-mono text-stone-500 mb-4 tracking-widest">{'// core technologies'}</p>
           <div className="flex flex-wrap gap-2">
             {[
               'Python & LangGraph',
@@ -95,7 +95,7 @@ const About = () => {
 
         {/* Key Numbers */}
         <div className="mb-20">
-          <p className="text-xs font-mono text-stone-500 mb-6 tracking-widest">// by the numbers</p>
+          <p className="text-xs font-mono text-stone-500 mb-6 tracking-widest">{'// by the numbers'}</p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               { value: 'Agentic', label: 'clinical AI systems in production at Optispan' },
@@ -112,7 +112,7 @@ const About = () => {
 
         {/* Targeting */}
         <div className="border border-stone-900/10 rounded-lg p-6">
-          <p className="text-xs font-mono text-secondary mb-3 tracking-widest">// targeting</p>
+          <p className="text-xs font-mono text-secondary mb-3 tracking-widest">{'// targeting'}</p>
           <p className="text-sm font-mono text-text-primary mb-1">
             AI Engineer &nbsp;·&nbsp; Inference Engineer &nbsp;·&nbsp; Product Engineer &nbsp;·&nbsp; Software Engineer
           </p>

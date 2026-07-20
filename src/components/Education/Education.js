@@ -61,7 +61,7 @@ const Education = () => {
               <div className="p-6 grid sm:grid-cols-2 gap-8">
                 {edu.courses && (
                   <div>
-                    <p className="text-xs font-mono text-stone-500 mb-3 tracking-widest">// key courses</p>
+                    <p className="text-xs font-mono text-stone-500 mb-3 tracking-widest">{'// key courses'}</p>
                     <div className="flex flex-wrap gap-2">
                       {edu.courses.map((course, i) => (
                         <span
@@ -77,7 +77,7 @@ const Education = () => {
 
                 {edu.highlights && (
                   <div>
-                    <p className="text-xs font-mono text-stone-500 mb-3 tracking-widest">// highlights</p>
+                    <p className="text-xs font-mono text-stone-500 mb-3 tracking-widest">{'// highlights'}</p>
                     <ul className="space-y-2.5">
                       {edu.highlights.map((h, i) => (
                         <li key={i} className="flex gap-2.5 text-sm text-stone-500 leading-relaxed">
