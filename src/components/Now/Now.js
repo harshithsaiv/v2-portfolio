@@ -105,16 +105,25 @@ const Now = () => {
             </p>
           </section>
 
-          {/* Pixel Vignette */}
-          <section>
+          {/* Pixel Art + Language Learning */}
+          <section className="flex flex-wrap gap-4">
             <div className="inline-block border border-stone-900/10 rounded-lg p-3 bg-stone-50">
               <img
-                src="/pixel-town.png"
-                alt="A small pixel-art village"
-                className="w-64 sm:w-72 rounded [image-rendering:pixelated]"
+                src="/image.png"
+                alt="A pixel-art character I drew"
+                className="w-40 sm:w-44 rounded [image-rendering:pixelated]"
               />
               <p className="text-[10px] font-mono text-stone-400 mt-2 text-center">
-                pixel art by kenney.nl (CC0)
+                I am learning pixel art
+              </p>
+            </div>
+
+            <div className="w-40 sm:w-44 border border-stone-900/10 rounded-lg p-3 bg-stone-50 flex flex-col items-center justify-center">
+              <p className="text-3xl sm:text-4xl tracking-widest text-text-primary" style={{ fontFamily: "'Noto Sans Gothic', sans-serif" }}>
+                𐌰𐌱𐌲𐌳𐌴
+              </p>
+              <p className="text-[10px] font-mono text-stone-400 mt-3 text-center">
+                learning a new language
               </p>
             </div>
           </section>
