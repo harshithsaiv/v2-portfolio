@@ -87,7 +87,7 @@ const Now = () => {
 
         {/* Header */}
         <div className="mb-12">
-          <p className="text-xs font-mono text-secondary tracking-widest mb-2">// now</p>
+          <p className="text-xs font-mono text-secondary tracking-widest mb-2">{'// now'}</p>
           <h1 className="text-3xl lg:text-4xl font-black text-text-primary mb-3">What I'm up to</h1>
           <p className="text-xs font-mono text-stone-500">
             A <a href="https://nownownow.com/about" className="text-secondary hover:text-text-primary transition-colors" target="_blank" rel="noopener noreferrer">/now page</a>
@@ -130,7 +130,7 @@ const Now = () => {
 
           {/* Reading Section */}
           <section className="space-y-3">
-            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">// reading</h2>
+            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">{'// reading'}</h2>
             {books.map((book, index) => {
               const Wrapper = book.link ? 'a' : 'div';
               return (
@@ -156,7 +156,7 @@ const Now = () => {
 
           {/* Learning Section */}
           <section className="space-y-4">
-            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">// learning</h2>
+            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">{'// learning'}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {learningResources.map((resource, index) => (
                 <a
@@ -180,7 +180,7 @@ const Now = () => {
 
           {/* Building Section */}
           <section className="space-y-6">
-            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">// building</h2>
+            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">{'// building'}</h2>
             <ul className="space-y-2.5">
               {[
                 'RAFT-WAL: Write-Ahead Log with Raft consensus in safe Rust',
@@ -198,7 +198,7 @@ const Now = () => {
 
           {/* Away From the Keyboard */}
           <section className="space-y-4">
-            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">// away from the keyboard</h2>
+            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">{'// away from the keyboard'}</h2>
             <div className="flex items-center gap-5 border border-stone-900/10 rounded-lg p-4">
               <img
                 src="/Strava.jpg"
@@ -214,7 +214,7 @@ const Now = () => {
 
           {/* GitHub Activity */}
           <section className="space-y-4">
-            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">// github activity</h2>
+            <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">{'// github activity'}</h2>
             <div className="border border-stone-900/10 rounded-lg p-5 overflow-x-auto">
               <img
                 src="https://ghchart.rshah.org/2f6d5f/harshithsaiv"
