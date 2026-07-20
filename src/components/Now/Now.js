@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom';
 const Now = () => {
   const books = [
     {
+      title: "LLVM Code Generation",
+      author: "Quentin Colombet",
+      progress: 15,
+      link: ""
+    },
+    {
       title: "Programming Massively Parallel Processors",
       author: "David B. Kirk & Wen-mei W. Hwu",
       progress: 45,
@@ -115,26 +121,27 @@ const Now = () => {
           {/* Reading Section */}
           <section className="space-y-3">
             <h2 className="text-xs font-mono text-stone-500 tracking-widest mb-6">// reading</h2>
-            {books.map((book, index) => (
-              <a
-                key={index}
-                href={book.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-5 border border-stone-900/10 rounded-lg p-4 hover:border-secondary/30 transition-all duration-300"
-              >
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold text-text-primary group-hover:text-secondary transition-colors mb-0.5 leading-snug">{book.title}</p>
-                  <p className="text-xs font-mono text-stone-500">{book.author}</p>
-                </div>
-                <div className="flex-shrink-0 w-24 text-right">
-                  <div className="text-xs font-mono text-stone-500 mb-1">{book.progress}%</div>
-                  <div className="w-full bg-stone-200 rounded-full h-1">
-                    <div className="bg-secondary/60 h-1 rounded-full" style={{ width: `${book.progress}%` }} />
+            {books.map((book, index) => {
+              const Wrapper = book.link ? 'a' : 'div';
+              return (
+                <Wrapper
+                  key={index}
+                  {...(book.link ? { href: book.link, target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="group flex items-center gap-5 border border-stone-900/10 rounded-lg p-4 hover:border-secondary/30 transition-all duration-300"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-bold text-text-primary group-hover:text-secondary transition-colors mb-0.5 leading-snug">{book.title}</p>
+                    <p className="text-xs font-mono text-stone-500">{book.author}</p>
                   </div>
-                </div>
-              </a>
-            ))}
+                  <div className="flex-shrink-0 w-24 text-right">
+                    <div className="text-xs font-mono text-stone-500 mb-1">{book.progress}%</div>
+                    <div className="w-full bg-stone-200 rounded-full h-1">
+                      <div className="bg-secondary/60 h-1 rounded-full" style={{ width: `${book.progress}%` }} />
+                    </div>
+                  </div>
+                </Wrapper>
+              );
+            })}
           </section>
 
           {/* Learning Section */}

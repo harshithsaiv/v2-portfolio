@@ -5,6 +5,12 @@ import { Link } from 'react-router-dom';
 // than a shared import since the two views style/slice it differently.
 const BOOKS = [
   {
+    title: 'LLVM Code Generation',
+    author: 'Quentin Colombet',
+    progress: 15,
+    gradient: 'linear-gradient(160deg, #4a2f45 0%, #201018 100%)',
+  },
+  {
     title: 'Programming Massively Parallel Processors',
     author: 'Kirk & Hwu',
     progress: 45,
