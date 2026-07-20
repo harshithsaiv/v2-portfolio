@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { trackEvent } from '../../lib/analytics';
 
@@ -14,13 +14,6 @@ const SECTIONS = [
 ];
 
 const pad = (n) => String(n).padStart(2, '0');
-
-function formatUptime(seconds) {
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  const s = Math.floor(seconds % 60);
-  return `${pad(h)}:${pad(m)}:${pad(s)}`;
-}
 
 const SectionsList = ({ activeSection, onNavigate }) => (
   <nav>
@@ -81,14 +74,6 @@ const SocialRow = () => (
 );
 
 export const SidebarContent = ({ activeSection, onNavigate, onLinkClick }) => {
-  const [uptime, setUptime] = useState(0);
-
-  useEffect(() => {
-    const start = Date.now();
-    const t = setInterval(() => setUptime(Math.floor((Date.now() - start) / 1000)), 1000);
-    return () => clearInterval(t);
-  }, []);
-
   return (
     <>
       <div className="flex items-start justify-between mb-5">
@@ -104,16 +89,9 @@ export const SidebarContent = ({ activeSection, onNavigate, onLinkClick }) => {
       </div>
 
       <div className="mb-8">
-        <div className="flex items-center gap-1.5 text-xs font-mono text-text-secondary tracking-wide">
-          <span className="flex gap-0.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-            <span className="w-1.5 h-1.5 rounded-full bg-secondary/50" />
-          </span>
+        <div className="text-xs font-mono text-text-secondary tracking-wide">
           AI ENGINEER &middot; OPTISPAN
         </div>
-        <p className="text-[10px] font-mono text-stone-400 mt-1.5 tracking-wide">
-          UPTIME {formatUptime(uptime)}
-        </p>
       </div>
 
       <div className="mb-8">

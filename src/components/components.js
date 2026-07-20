@@ -117,12 +117,12 @@ const Components = () => {
           <section id="about" className="min-h-screen">
             <About />
           </section>
-        </div>
 
-        <LogTicker />
+          <div className="mt-16 mb-16">
+            <LogTicker />
+          </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
-          <section id="education" className="pt-24 pb-24">
+          <section id="education" className="pb-24">
             <Education />
           </section>
           <section id="experience" className="pb-24">
