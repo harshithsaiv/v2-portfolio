@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gothic&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,28 @@ html {
 
 body {
   @apply bg-primary text-text-primary;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Geist', sans-serif;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9D3C7;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2F6D5F60;
+}
+
+/* Text selection */
+::selection {
+  background: rgba(47, 109, 95, 0.15);
+  color: #2F6D5F;
 }
 
 /* Knowledge base specific styles */
@@ -19,5 +40,5 @@ body {
 }
 
 .kb-resource {
-  @apply hover:bg-gray-800/40 p-3 rounded transition-colors;
+  @apply hover:bg-stone-900/[0.03] p-3 rounded transition-colors;
 }
