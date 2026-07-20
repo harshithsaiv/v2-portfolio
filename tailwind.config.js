@@ -15,6 +15,7 @@ module.exports = {
         'slide-up': 'slideUp 0.5s ease-out',
         'ping': 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
         'marquee': 'marquee 32s linear infinite',
+        'bubble': 'bubble 2.6s ease-in infinite',
       },
       keyframes: {
         fadeIn: {
@@ -34,6 +35,12 @@ module.exports = {
         marquee: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        bubble: {
+          '0%': { transform: 'translateY(0)', opacity: '0' },
+          '15%': { opacity: '0.9' },
+          '90%': { opacity: '0.2' },
+          '100%': { transform: 'translateY(-58px)', opacity: '0' },
         },
       },
       backdropBlur: {

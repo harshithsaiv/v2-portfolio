@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import PixelPattern from '../elements/PixelPattern';
+import TokenJar from '../elements/TokenJar';
 
 const About = () => {
   const [cursor, setCursor] = useState(true);
@@ -64,8 +64,8 @@ const About = () => {
             </div>
           </div>
 
-          <div className="w-40 h-52 sm:w-48 sm:h-64 lg:w-56 lg:h-72 shrink-0 mx-auto lg:mx-0 lg:mt-24 rounded-lg overflow-hidden border border-stone-900/10 bg-black shadow-sm">
-            <PixelPattern className="w-full h-full" seed={7} />
+          <div className="lg:mt-24">
+            <TokenJar />
           </div>
         </div>
 
