@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PixelIcon from '../elements/PixelIcon';
 
 const Now = () => {
   const books = [
@@ -33,37 +34,37 @@ const Now = () => {
     {
       title: "CUDA Programming & GPU Optimization",
       url: "https://www.nvidia.com/en-us/training/",
-      icon: "🖥️",
+      icon: "chip",
       description: "Parallel computing, GPU architecture, and CUDA kernel optimization for ML workloads"
     },
     {
       title: "vLLM & LLM Inference Optimization",
       url: "https://docs.vllm.ai/",
-      icon: "⚡",
+      icon: "bolt",
       description: "PagedAttention, continuous batching, quantization: making LLM serving fast and memory-efficient"
     },
     {
       title: "Advanced Deep Learning Architectures",
       url: "https://www.deeplearning.ai/",
-      icon: "🧠",
+      icon: "network",
       description: "Transformer models, attention mechanisms, and state-of-the-art neural network architectures"
     },
     {
       title: "Distributed Systems & Consensus",
       url: "https://www.youtube.com/watch?v=cQP8WApzIQQ&list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB",
-      icon: "🔗",
+      icon: "chain",
       description: "Raft, Paxos, replication protocols, and scalable system design"
     },
     {
       title: "LLVM & MLIR: Compiler Infrastructure for ML",
       url: "https://mlir.llvm.org/",
-      icon: "⚙️",
+      icon: "gear",
       description: "Poking at how ML compilers lower graphs to hardware-specific IR, the compiler side of fast inference, not just the kernel side"
     },
     {
       title: "MVVM & Client Architecture Patterns",
       url: "https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel",
-      icon: "🧩",
+      icon: "puzzle",
       description: "Rounding out inference/backend work with how state and UI composition hold together on the client side"
     },
   ];
@@ -156,7 +157,9 @@ const Now = () => {
                   rel="noopener noreferrer"
                   className="group flex items-start gap-4 border border-stone-900/10 rounded-lg p-4 hover:border-secondary/30 transition-all duration-200"
                 >
-                  <span className="text-2xl flex-shrink-0 mt-0.5">{resource.icon}</span>
+                  <span className="flex-shrink-0 mt-0.5 w-9 h-9 text-stone-500 group-hover:text-secondary transition-colors">
+                    <PixelIcon name={resource.icon} className="w-full h-full" />
+                  </span>
                   <div>
                     <p className="text-sm font-mono text-text-primary group-hover:text-secondary transition-colors mb-1">{resource.title}</p>
                     <p className="text-xs text-stone-500 leading-relaxed">{resource.description}</p>
