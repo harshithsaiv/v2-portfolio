@@ -23,6 +23,59 @@
     <!-- Update favicon links below -->
     <link rel="icon" href="Logo.jpg" />
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://harshithsai.com/#person",
+          "name": "Harshith Sai Veeraiah",
+          "url": "https://harshithsai.com/",
+          "image": "https://harshithsai.com/profile-photo.jpg",
+          "jobTitle": ["AI Engineer", "Founding Engineer"],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Optispan"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "California State University, Sacramento"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/harshith-sai-v/",
+            "https://github.com/harshithsaiv"
+          ],
+          "knowsAbout": [
+            "Artificial Intelligence",
+            "Large Language Models",
+            "Agentic AI Systems",
+            "GPU Computing",
+            "CUDA",
+            "Distributed Systems",
+            "Rust",
+            "Python"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://harshithsai.com/#website",
+          "url": "https://harshithsai.com/",
+          "name": "Harshith Sai Veeraiah — AI Engineer",
+          "description": "AI Engineer building agentic AI systems, LLM inference pipelines, and distributed infrastructure.",
+          "publisher": { "@id": "https://harshithsai.com/#person" }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://harshithsai.com/#profilepage",
+          "url": "https://harshithsai.com/",
+          "mainEntity": { "@id": "https://harshithsai.com/#person" },
+          "isPartOf": { "@id": "https://harshithsai.com/#website" }
+        }
+      ]
+    }
+    </script>
+
 </head>
 <body>
     <div id="root"></div>
