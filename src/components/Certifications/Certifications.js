@@ -2,18 +2,32 @@ import React from 'react';
 
 const certifications = [
   {
-    title: "AWS Certified Solutions Architect",
+    title: "AWS Certified Solutions Architect - Associate",
     issuer: "Amazon Web Services",
     date: "2023",
-    description: "Designed and implemented scalable, highly available, and fault-tolerant systems on AWS.",
+    description: "Expertise in designing and implementing scalable, highly available, and fault-tolerant distributed systems on AWS. Proficient in cloud architecture, serverless computing, containerization, and DevOps practices for production-grade applications.",
     link: "https://aws.amazon.com/certification/"
   },
   {
-    title: "Google Cloud Professional Developer",
+    title: "NVIDIA Deep Learning Institute - GPU Programming",
+    issuer: "NVIDIA",
+    date: "2024",
+    description: "Advanced certification in GPU programming with CUDA, parallel computing architectures, and optimizing deep learning workloads. Specialized in accelerating AI/ML applications using NVIDIA GPUs and understanding GPU memory hierarchies for high-performance computing.",
+    link: "https://www.nvidia.com/en-us/training/"
+  },
+  {
+    title: "Google Cloud Professional Cloud Developer",
     issuer: "Google Cloud",
     date: "2022",
-    description: "Expertise in building scalable and highly available applications using Google Cloud.",
+    description: "Certified in building scalable and highly available applications using Google Cloud Platform. Expertise in containerization with Docker and Kubernetes, CI/CD pipelines, microservices architecture, and cloud-native application development.",
     link: "https://cloud.google.com/certification"
+  },
+  {
+    title: "Deep Learning Specialization",
+    issuer: "DeepLearning.AI (Coursera)",
+    date: "2023",
+    description: "Comprehensive specialization covering neural networks, deep learning optimization, CNNs, RNNs, and transformers. Hands-on experience with PyTorch and TensorFlow for building production-ready ML models and deploying AI systems at scale.",
+    link: "https://www.deeplearning.ai/"
   }
 ];
 

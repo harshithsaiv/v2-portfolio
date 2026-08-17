@@ -3,22 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harshith Portfolio</title>
-    <!-- Include the Kampen Pixel W01 Box font -->
-    <link href="https://db.onlinewebfonts.com/c/67c0096ae3eae12d73e6d168b92007aa?family=Kampen+Pixel+W01+Box" rel="stylesheet">
-    <!-- Include your custom CSS -->
-    <link rel="stylesheet" href="App.css">
+    <title>Harshith Sai Veeraiah — AI Engineer</title>
+    <meta name="description" content="AI Engineer building agentic AI systems, LLM inference pipelines, and distributed infrastructure. Notes on papers I'm reading, systems I'm building, and what I'm learning." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Harshith Sai Veeraiah — AI Engineer" />
+    <meta property="og:description" content="AI Engineer building agentic AI systems, LLM inference pipelines, and distributed infrastructure. Notes on papers I'm reading, systems I'm building, and what I'm learning." />
+    <meta property="og:image" content="%PUBLIC_URL%/profile-photo.jpg" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Harshith Sai Veeraiah — AI Engineer" />
+    <meta name="twitter:description" content="AI Engineer building agentic AI systems, LLM inference pipelines, and distributed infrastructure." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/profile-photo.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Update favicon links below -->
     <link rel="icon" href="Logo.jpg" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://harshithsai.com/#person",
+          "name": "Harshith Sai Veeraiah",
+          "url": "https://harshithsai.com/",
+          "image": "https://harshithsai.com/profile-photo.jpg",
+          "jobTitle": ["AI Engineer", "Founding Engineer"],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Optispan"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "California State University, Sacramento"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/harshith-sai-v/",
+            "https://github.com/harshithsaiv"
+          ],
+          "knowsAbout": [
+            "Artificial Intelligence",
+            "Large Language Models",
+            "Agentic AI Systems",
+            "GPU Computing",
+            "CUDA",
+            "Distributed Systems",
+            "Rust",
+            "Python"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://harshithsai.com/#website",
+          "url": "https://harshithsai.com/",
+          "name": "Harshith Sai Veeraiah — AI Engineer",
+          "description": "AI Engineer building agentic AI systems, LLM inference pipelines, and distributed infrastructure.",
+          "publisher": { "@id": "https://harshithsai.com/#person" }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://harshithsai.com/#profilepage",
+          "url": "https://harshithsai.com/",
+          "mainEntity": { "@id": "https://harshithsai.com/#person" },
+          "isPartOf": { "@id": "https://harshithsai.com/#website" }
+        }
+      ]
+    }
+    </script>
 
 </head>
 <body>
     <div id="root"></div>
-    <!-- Include your bundled React script -->
-    <script src="index.js"></script>
 </body>
 </html>
