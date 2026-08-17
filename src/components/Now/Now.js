@@ -317,6 +317,9 @@ const Now = () => {
           <Link to="/now" className="text-secondary hover:text-white transition-colors text-sm font-medium">
             Now
           </Link>
+          <Link to="/blog" className="text-secondary hover:text-white transition-colors text-sm">
+            Blog
+          </Link>
         </nav>
         
         <header className="mb-12">

@@ -25,6 +25,12 @@ const KnowledgeBase = () => {
           <Link to="/knowledge-base" className="text-secondary hover:text-white transition-colors text-sm font-medium">
             Knowledge Base
           </Link>
+          <Link to="/now" className="text-secondary hover:text-white transition-colors text-sm">
+            Now
+          </Link>
+          <Link to="/blog" className="text-secondary hover:text-white transition-colors text-sm">
+            Blog
+          </Link>
         </nav>
 
         <header className="mb-12">

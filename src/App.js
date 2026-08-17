@@ -5,6 +5,8 @@ import { AnimatePresence } from "framer-motion";
 import BootElement from './components/elements/bootscreen/BootElement';
 import Now from './components/Now/Now';
 import KnowledgeBase from './components/KnowledgeBase/KnowledgeBase';
+import Blog from './components/Blog/Blog';
+import GutiskaLlama from './components/Blog/GutiskaLlama';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +33,8 @@ function App() {
                 <Route path="/" element={<Components />} />
                 <Route path="/now" element={<Now />} />
                 <Route path="/knowledge-base" element={<KnowledgeBase />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/gutiska-llama" element={<GutiskaLlama />} />
               </Routes>
             </div>
             <footer className="w-full py-4 text-center border-t border-gray-800/50 mt-auto">
